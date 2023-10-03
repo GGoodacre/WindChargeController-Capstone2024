@@ -1,2 +1,2 @@
-# SolarChargeController-Capstone2024
-Solar Charge Controller for BEng Capstone 2024
+# WindChargeController-Capstone2024
+Wind Charge Controller for BEng Capstone 2024
