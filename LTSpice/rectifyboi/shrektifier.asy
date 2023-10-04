@@ -1,0 +1,23 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -96 -72 112 72
+TEXT -89 -110 Left 2 Braking Rectifier
+WINDOW 0 8 -72 Bottom 2
+PIN -96 -48 LEFT 8
+PINATTR PinName Brake
+PINATTR SpiceOrder 1
+PIN -96 -16 LEFT 8
+PINATTR PinName Phase_A
+PINATTR SpiceOrder 2
+PIN -96 16 LEFT 8
+PINATTR PinName Phase_B
+PINATTR SpiceOrder 3
+PIN -96 48 LEFT 8
+PINATTR PinName Phase_C
+PINATTR SpiceOrder 4
+PIN 112 -16 RIGHT 8
+PINATTR PinName VDC+
+PINATTR SpiceOrder 5
+PIN 112 16 RIGHT 8
+PINATTR PinName VDC-
+PINATTR SpiceOrder 6
