@@ -1,0 +1,5 @@
+Circuit: * C:\Users\HP USER\Documents\BCIT\7000\WindChargeController-Capstone2024\LTSpice\testproj\testproj.asc
+
+Limiting rise time of source v:x1:1 to 1.33333e-007
+Limiting fall time of source v:x1:1 to 1.33333e-007
+Direct Newton iteration for .op point succeeded.

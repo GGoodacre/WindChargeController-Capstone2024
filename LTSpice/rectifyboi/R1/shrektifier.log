@@ -1,0 +1,21 @@
+Circuit: * C:\Users\HP USER\Documents\BCIT\7000\capstone\rectifyboi\shrektifier.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Thu Sep 28 14:08:43 2023
+Total elapsed time: 0.139 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 12498
+traniter = 12486
+tranpoints = 4130
+accept = 2551
+rejected = 1579
+matrix size = 25
+fillins = 8
+solver = Normal
+Matrix Compiler1: 1.86 KB object code size  0.3/0.2/[0.1]
+Matrix Compiler2: off  [0.2]/0.2/0.2
+
