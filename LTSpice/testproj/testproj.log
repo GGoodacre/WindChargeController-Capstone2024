@@ -7,23 +7,21 @@ WARNING: Node X7:COM is floating.
 Direct Newton iteration for .op point succeeded.
 Ignoring empty pin current: Ix(x7:power)
 Ignoring empty pin current: Ix(x7:power)
-Heightened Def Con from 0.000380133 to 0.000380133
-Heightened Def Con from 0.00124845 to 0.00124845
 
-Date: Fri Oct 06 12:26:43 2023
-Total elapsed time: 3.323 seconds.
+Date: Tue Oct 10 15:14:48 2023
+Total elapsed time: 11.511 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 295927
-traniter = 295892
-tranpoints = 79113
-accept = 59920
-rejected = 19195
-matrix size = 57
-fillins = 20
+totiter = 717794
+traniter = 717759
+tranpoints = 191819
+accept = 146136
+rejected = 45683
+matrix size = 59
+fillins = 26
 solver = Alternate
-Matrix Compiler1: 5.89 KB object code size  1.5/0.8/[0.6]
-Matrix Compiler2: 5.73 KB object code size  0.6/0.8/[0.6]
+Matrix Compiler1: 6.46 KB object code size  3.0/2.8/[1.1]
+Matrix Compiler2: 5.93 KB object code size  2.0/1.6/[0.8]
 
