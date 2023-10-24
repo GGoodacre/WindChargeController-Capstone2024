@@ -5,23 +5,31 @@ Limiting fall time of source v:x1:1 to 1.33333e-007
 WARNING: Node X7:COM is floating.
 
 Direct Newton iteration for .op point succeeded.
+Ignoring empty pin current: Ix(m1:1)
+Ignoring empty pin current: Ix(m1:2)
+Ignoring empty pin current: Ix(m1:3)
 Ignoring empty pin current: Ix(x7:power)
+Ignoring empty pin current: Ix(m1:1)
+Ignoring empty pin current: Ix(m1:2)
+Ignoring empty pin current: Ix(m1:3)
 Ignoring empty pin current: Ix(x7:power)
+Heightened Def Con from 0.0026216 to 0.0026216
+Heightened Def Con from 0.0026216 to 0.0026216
 
-Date: Tue Oct 10 15:14:48 2023
-Total elapsed time: 11.511 seconds.
+Date: Tue Oct 24 10:26:44 2023
+Total elapsed time: 24.505 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 717794
-traniter = 717759
-tranpoints = 191819
-accept = 146136
-rejected = 45683
-matrix size = 59
-fillins = 26
+totiter = 1183417
+traniter = 1183385
+tranpoints = 367674
+accept = 274739
+rejected = 92937
+matrix size = 68
+fillins = 30
 solver = Alternate
-Matrix Compiler1: 6.46 KB object code size  3.0/2.8/[1.1]
-Matrix Compiler2: 5.93 KB object code size  2.0/1.6/[0.8]
+Matrix Compiler1: 7.22 KB object code size  1.7/1.3/[1.0]
+Matrix Compiler2: 6.79 KB object code size  1.0/1.3/[0.7]
 
