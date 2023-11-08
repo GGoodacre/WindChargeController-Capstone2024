@@ -9,16 +9,11 @@ Ipsum
 
 ## LTspice
 To get the LTspice simulation to run
-1) Go to "Tools > Control Panel > SPICE" and change "Solver" to "Alternate"
-2) Copy paste the following into "Tools > Control Panel > Sym. & Lib. Search Paths > Symbol Search Path[*]"
+1) Open "LTSpice\WCC\windchargecontroller.asc"
+2) Go to "Tools > Control Panel > SPICE" and change "Solver" to "Alternate"
+3) Copy paste the following into "Tools > Control Panel > Sym. & Lib. Search Paths > Symbol Search Path[*]"
 
->..\squarewavegen
->..\sepicboi
->..\rectifyboi
->..\turbine
->..\powerswitchyboi
->..\ADC
->..\killswitch
+>..\WCC_lib
 
 
 ## Media
