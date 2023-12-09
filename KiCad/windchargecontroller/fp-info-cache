@@ -1,4 +1,4 @@
-20937613543302305
+20942718876850361
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -87605,6 +87605,13 @@ SBRD10200TR
 3
 3
 footprints
+LIND_1-4_2-3_WE-CMBNC_TYPE-M_WRE
+
+7448031002 
+0
+4
+4
+footprints
 RC1206N_VIS
 
 CRCW12061M00FKEA 
@@ -87668,6 +87675,13 @@ CRCW12062R43FKEA
 2
 2
 footprints
+SAMTEC_ESQ-120-XX-X-D-XX
+
+
+0
+40
+40
+footprints
 SAMTEC_ESW-110-12-T-D
 
 
@@ -87681,3 +87695,10 @@ SI7336ADP-T1-GE3
 0
 6
 6
+footprints
+bonfire
+
+
+0
+0
+0
