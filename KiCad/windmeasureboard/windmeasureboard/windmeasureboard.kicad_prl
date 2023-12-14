@@ -62,11 +62,11 @@
       35,
       36
     ],
-    "visible_layers": "ffdffef_ffffffff",
+    "visible_layers": "fffffff_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "windchargecontroller.kicad_prl",
+    "filename": "windmeasureboard.kicad_prl",
     "version": 3
   },
   "project": {

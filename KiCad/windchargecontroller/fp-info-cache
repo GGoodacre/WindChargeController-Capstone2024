@@ -1,4 +1,4 @@
-20942718876850361
+20946124226086707
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -87528,6 +87528,13 @@ varistor
 2
 2
 footprints
+5100_KEY
+
+5100TR 
+0
+2
+2
+footprints
 CAPC3225X270N
 
 
@@ -87695,6 +87702,13 @@ SI7336ADP-T1-GE3
 0
 6
 6
+footprints
+STA_JW60_STP
+
+JW60ZT0R00 
+0
+2
+2
 footprints
 bonfire
 

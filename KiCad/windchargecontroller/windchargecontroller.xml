@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\HP USER\Documents\BCIT\7000\WindChargeController-Capstone2024\KiCad\windchargecontroller\windchargecontroller.kicad_sch</source>
+    <date>2023-12-09 12:56:14 PM</date>
+    <tool>Eeschema (6.0.10)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Wind Charge Controller</title>
+        <company>BCIT</company>
+        <rev>1</rev>
+        <date>2023-11-27</date>
+        <source>windchargecontroller.kicad_sch</source>
+        <comment number="1" value="Kurt Querengesser"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f21fd12-b00f-456f-a184-ca765fd8e052</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>EEUFS2A151</value>
+      <footprint>footprints:CAP_EEUFS2A151_PAN</footprint>
+      <datasheet>EEUFS2A151</datasheet>
+      <libsource lib="EEUFS2A151" part="EEUFS2A151" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>25cbc6f1-c0ae-42eb-a290-ab03b89a64ea</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>06fda1ff-53f4-4a1d-bc95-2152669d974a</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>deb43937-b5f6-4cdf-80b8-ae2d13bd6290</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>632bc404-d3db-4ffb-8148-b88d9564a79b</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bddf713d-5189-421c-b0f7-4da3b9e10976</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d42a17b0-1e21-4d3b-8bd0-6849f4bc22a5</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>91d75d47-c30b-48be-b05c-71bceebd3d66</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1b1cdf2c-c7ad-43cd-ac9f-2d184b723fec</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>811b300c-b836-45fe-bf86-362f960a3be1</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e5ed6839-3962-4664-9ac0-fb78c7ccd14c</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b601735a-6b0f-4ecd-a4dc-7ac446683794</tstamps>
+    </comp>
+    <comp ref="C13">
+      <value>GRM32EC72A106KE05L</value>
+      <footprint>footprints:CAPC3225X270N</footprint>
+      <libsource lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e127d07-2d0b-4a0c-bcaf-e81ce3dc27b6</tstamps>
+    </comp>
+    <comp ref="C14">
+      <value>EEUFS2A151</value>
+      <footprint>footprints:CAP_EEUFS2A151_PAN</footprint>
+      <datasheet>EEUFS2A151</datasheet>
+      <libsource lib="EEUFS2A151" part="EEUFS2A151" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>530b09b3-0ba4-4c88-86e6-83e1d291f914</tstamps>
+    </comp>
+    <comp ref="C15">
+      <value>EEUFS2A151</value>
+      <footprint>footprints:CAP_EEUFS2A151_PAN</footprint>
+      <datasheet>EEUFS2A151</datasheet>
+      <libsource lib="EEUFS2A151" part="EEUFS2A151" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e95b1528-642a-44a1-9047-493bec45a947</tstamps>
+    </comp>
+    <comp ref="C16">
+      <value>EEUFS2A151</value>
+      <footprint>footprints:CAP_EEUFS2A151_PAN</footprint>
+      <datasheet>EEUFS2A151</datasheet>
+      <libsource lib="EEUFS2A151" part="EEUFS2A151" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>731e76a1-919b-4b2a-992d-48bc2c0b4778</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>358a72cc-ba22-4f40-816a-06e7a4adfd82</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1ca51324-1ee3-4431-bc52-e48bd64704b7</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c18be2a-558d-4da6-8ec0-a9636879f092</tstamps>
+    </comp>
+    <comp ref="D4">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b8302f49-f6fe-4f8f-b161-2a7e76e33131</tstamps>
+    </comp>
+    <comp ref="D5">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>36f1c312-78bd-411f-ac37-67eba56fd669</tstamps>
+    </comp>
+    <comp ref="D6">
+      <value>SBRD10200TR</value>
+      <footprint>footprints:DPAK_SBRD10200_6P6X6P1_SDS</footprint>
+      <datasheet>SBRD10200TR</datasheet>
+      <libsource lib="SBRD10200TR" part="SBRD10200TR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d8cb920-f8ea-4ac5-b90e-8ec9f1d1ea4c</tstamps>
+    </comp>
+    <comp ref="FL1">
+      <value>7448031002</value>
+      <footprint>footprints:LIND_1-4_2-3_WE-CMBNC_TYPE-M_WRE</footprint>
+      <datasheet>7448031002</datasheet>
+      <libsource lib="7448031002" part="7448031002" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e590dd50-0567-4085-8711-7c5d6bbf8381</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>1935789</value>
+      <footprint>footprints:CONN_1935789_PXC</footprint>
+      <datasheet>1935789</datasheet>
+      <libsource lib="1935789 Terminal" part="1935789" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c2ad2b79-8251-44b1-9ecb-346ddb257388</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>ESQ-120-XX-X-D-XX</value>
+      <footprint>footprints:SAMTEC_ESQ-120-XX-X-D-XX</footprint>
+      <fields>
+        <field name="MANUFACTURER">Samtec</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">13.84 mm</field>
+        <field name="PARTREV">--</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <libsource lib="ESQ-120-XX-X-D-XX" part="ESQ-120-XX-X-D-XX" description=""/>
+      <property name="PARTREV" value="--"/>
+      <property name="STANDARD" value="Manufacturer Recommendations"/>
+      <property name="MAXIMUM_PACKAGE_HEIGHT" value="13.84 mm"/>
+      <property name="MANUFACTURER" value="Samtec"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>485cabd0-8ff8-4e28-a188-946c6aaff39f</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>1935789</value>
+      <footprint>footprints:CONN_1935789_PXC</footprint>
+      <datasheet>1935789</datasheet>
+      <libsource lib="1935789 Terminal" part="1935789" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5313292d-cf0d-44d9-b9ea-63f3cb42c63a</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>1935789</value>
+      <footprint>footprints:CONN_1935789_PXC</footprint>
+      <datasheet>1935789</datasheet>
+      <libsource lib="1935789 Terminal" part="1935789" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a7ab2873-998c-4425-a59c-ea6e4927f7c7</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>1935789</value>
+      <footprint>footprints:CONN_1935789_PXC</footprint>
+      <datasheet>1935789</datasheet>
+      <libsource lib="1935789 Terminal" part="1935789" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>597077e1-8219-41e3-8325-f64d1e50c7d7</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>1935789</value>
+      <footprint>footprints:CONN_1935789_PXC</footprint>
+      <datasheet>1935789</datasheet>
+      <libsource lib="1935789 Terminal" part="1935789" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8af64876-1f6b-4a71-a971-c6681e5edf50</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f1893666-f00d-4f29-afd4-420352a6b1e9</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>58914912-d30b-4320-b6b3-db0e7554e50b</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8c488634-1a6e-4c87-9f39-aff72cf28196</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>2N5210</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3904" description="0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>13cc0551-2797-4bef-9b2d-b2f242019e8b</tstamps>
+    </comp>
+    <comp ref="Q5">
+      <value>2N5087</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3906-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3906" description="-0.2A Ic, -40V Vce, Small Signal PNP Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6f71d10-175c-4267-82e5-bfc37fc73d62</tstamps>
+    </comp>
+    <comp ref="Q6">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae83d963-9d12-40d4-93de-edf826ae6b32</tstamps>
+    </comp>
+    <comp ref="Q7">
+      <value>2N5210</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3904" description="0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>775562a7-1982-4e72-b518-6416d4bbe9d7</tstamps>
+    </comp>
+    <comp ref="Q8">
+      <value>2N5087</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3906-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3906" description="-0.2A Ic, -40V Vce, Small Signal PNP Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b9efe3ce-2b59-4506-b179-cc1596a69b4a</tstamps>
+    </comp>
+    <comp ref="Q9">
+      <value>2N5210</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3904" description="0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7d54d749-cc17-4f60-86ea-58847c703c4b</tstamps>
+    </comp>
+    <comp ref="Q10">
+      <value>2N5087</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3906-D.PDF</datasheet>
+      <libsource lib="Transistor_BJT" part="2N3906" description="-0.2A Ic, -40V Vce, Small Signal PNP Transistor, TO-92"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1ddb558-4560-4a4c-ba49-9a1ef70c24f6</tstamps>
+    </comp>
+    <comp ref="Q11">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>036df299-7e6e-4599-b5f8-f8aef77d85f0</tstamps>
+    </comp>
+    <comp ref="Q12">
+      <value>Si7336ADP</value>
+      <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
+      <datasheet>https://www.vishay.com/docs/73152/si7336adp.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="Si7336ADP" description="30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>94f9c847-7b36-450d-91aa-3fde4ceee375</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c540780b-c739-4ea2-90e9-e357aac84a6d</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>108335a2-9172-447b-9305-2c369432a760</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>91de0bba-136e-41e6-907b-4ab6eb2b7fcb</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>CRCW120616R0FKEA</value>
+      <footprint>footprints:RC1206N_VIS</footprint>
+      <datasheet>CRCW120616R0FKEA</datasheet>
+      <libsource lib="CRCW120616R0FKEA" part="CRCW120616R0FKEA" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2af743b6-4110-43ed-ba1d-792664c13b3f</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>CRCW120616R0FKEA</value>
+      <footprint>footprints:RC1206N_VIS</footprint>
+      <datasheet>CRCW120616R0FKEA</datasheet>
+      <libsource lib="CRCW120616R0FKEA" part="CRCW120616R0FKEA" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d09ec44c-c878-4b99-ad0b-f660f1324d7d</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>CRCW120616R0FKEA</value>
+      <footprint>footprints:RC1206N_VIS</footprint>
+      <datasheet>CRCW120616R0FKEA</datasheet>
+      <libsource lib="CRCW120616R0FKEA" part="CRCW120616R0FKEA" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>95fe711b-ef2e-4271-b68b-ea38847f5cb8</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>10003e81-d7a8-468a-9f75-4290c1b3fe2f</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>CRCW12061M00FKEA</value>
+      <footprint>footprints:RC1206N_VIS</footprint>
+      <datasheet>CRCW12061M00FKEA</datasheet>
+      <libsource lib="CRCW12061M00FKEA" part="CRCW12061M00FKEA" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20b94ded-9133-4868-9abf-41d50085ea3d</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>CRCW12062R43FKEA</value>
+      <footprint>footprints:RES_V1206_VIS</footprint>
+      <datasheet>CRCW12062R43FKEA</datasheet>
+      <libsource lib="CRCW12062R43FKEA" part="CRCW12062R43FKEA" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>520e06b6-73e8-4238-95c7-e8fd1ca29448</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>08683796-9f8d-4bf9-9e8e-220e77018bdd</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5d5a36ea-0062-4eee-a675-81404fb5474e</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>MCS1632R010FER</value>
+      <footprint>footprints:RES_1206_OHM</footprint>
+      <datasheet>MCS1632R010FER</datasheet>
+      <libsource lib="MCS1632R010FER" part="MCS1632R010FER" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="windchargecontroller.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eab73cb2-a60b-4b8b-8d08-5c0104d344fe</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="1935789 Terminal" part="1935789">
+      <docs>1935789</docs>
+      <footprints>
+        <fp>CONN_1935789_PXC</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">1935789</field>
+        <field name="Footprint">CONN_1935789_PXC</field>
+        <field name="Datasheet">1935789</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspecified"/>
+        <pin num="2" name="2" type="unspecified"/>
+        <pin num="3" name="3" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="7448031002" part="7448031002">
+      <docs>7448031002</docs>
+      <footprints>
+        <fp>LIND_1-4_2-3_WE-CMBNC_TYPE-M_WRE</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">FL</field>
+        <field name="Value">7448031002</field>
+        <field name="Footprint">LIND_1-4_2-3_WE-CMBNC_TYPE-M_WRE</field>
+        <field name="Datasheet">7448031002</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspecified"/>
+        <pin num="2" name="2" type="unspecified"/>
+        <pin num="3" name="3" type="unspecified"/>
+        <pin num="4" name="4" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="CRCW120616R0FKEA" part="CRCW120616R0FKEA">
+      <docs>CRCW120616R0FKEA</docs>
+      <footprints>
+        <fp>RC1206N_VIS</fp>
+        <fp>RC1206N_VIS-M</fp>
+        <fp>RC1206N_VIS-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">CRCW120616R0FKEA</field>
+        <field name="Footprint">RC1206N_VIS</field>
+        <field name="Datasheet">CRCW120616R0FKEA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="unspecified"/>
+        <pin num="2" name="" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="CRCW12061M00FKEA" part="CRCW12061M00FKEA">
+      <docs>CRCW12061M00FKEA</docs>
+      <footprints>
+        <fp>RC1206N_VIS</fp>
+        <fp>RC1206N_VIS-M</fp>
+        <fp>RC1206N_VIS-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">CRCW12061M00FKEA</field>
+        <field name="Footprint">RC1206N_VIS</field>
+        <field name="Datasheet">CRCW12061M00FKEA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="unspecified"/>
+        <pin num="2" name="" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="CRCW12062R43FKEA" part="CRCW12062R43FKEA">
+      <docs>CRCW12062R43FKEA</docs>
+      <footprints>
+        <fp>RES_V1206_VIS</fp>
+        <fp>RES_V1206_VIS-M</fp>
+        <fp>RES_V1206_VIS-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">CRCW12062R43FKEA</field>
+        <field name="Footprint">RES_V1206_VIS</field>
+        <field name="Datasheet">CRCW12062R43FKEA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="unspecified"/>
+        <pin num="2" name="" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="EEUFS2A151" part="EEUFS2A151">
+      <docs>EEUFS2A151</docs>
+      <footprints>
+        <fp>CAP_EEUFS2A151_PAN</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">EEUFS2A151</field>
+        <field name="Footprint">CAP_EEUFS2A151_PAN</field>
+        <field name="Datasheet">EEUFS2A151</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="unspecified"/>
+        <pin num="2" name="" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="ESQ-120-XX-X-D-XX" part="ESQ-120-XX-X-D-XX">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">ESQ-120-XX-X-D-XX</field>
+        <field name="Footprint">ESQ-120-XX-X-D-XX:SAMTEC_ESQ-120-XX-X-D-XX</field>
+        <field name="PARTREV">--</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">13.84 mm</field>
+        <field name="MANUFACTURER">Samtec</field>
+      </fields>
+      <pins>
+        <pin num="01" name="01" type="passive"/>
+        <pin num="02" name="02" type="passive"/>
+        <pin num="03" name="03" type="passive"/>
+        <pin num="04" name="04" type="passive"/>
+        <pin num="05" name="05" type="passive"/>
+        <pin num="06" name="06" type="passive"/>
+        <pin num="07" name="07" type="passive"/>
+        <pin num="08" name="08" type="passive"/>
+        <pin num="09" name="09" type="passive"/>
+        <pin num="10" name="10" type="passive"/>
+        <pin num="11" name="11" type="passive"/>
+        <pin num="12" name="12" type="passive"/>
+        <pin num="13" name="13" type="passive"/>
+        <pin num="14" name="14" type="passive"/>
+        <pin num="15" name="15" type="passive"/>
+        <pin num="16" name="16" type="passive"/>
+        <pin num="17" name="17" type="passive"/>
+        <pin num="18" name="18" type="passive"/>
+        <pin num="19" name="19" type="passive"/>
+        <pin num="20" name="20" type="passive"/>
+        <pin num="21" name="21" type="passive"/>
+        <pin num="22" name="22" type="passive"/>
+        <pin num="23" name="23" type="passive"/>
+        <pin num="24" name="24" type="passive"/>
+        <pin num="25" name="25" type="passive"/>
+        <pin num="26" name="26" type="passive"/>
+        <pin num="27" name="27" type="passive"/>
+        <pin num="28" name="28" type="passive"/>
+        <pin num="29" name="29" type="passive"/>
+        <pin num="30" name="30" type="passive"/>
+        <pin num="31" name="31" type="passive"/>
+        <pin num="32" name="32" type="passive"/>
+        <pin num="33" name="33" type="passive"/>
+        <pin num="34" name="34" type="passive"/>
+        <pin num="35" name="35" type="passive"/>
+        <pin num="36" name="36" type="passive"/>
+        <pin num="37" name="37" type="passive"/>
+        <pin num="38" name="38" type="passive"/>
+        <pin num="39" name="39" type="passive"/>
+        <pin num="40" name="40" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="GRM32EC72A106KE05L" part="GRM32EC72A106KE05L">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">GRM32EC72A106KE05L</field>
+        <field name="Footprint">GRM32EC72A106KE05L:CAPC3225X270N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCS1632R010FER" part="MCS1632R010FER">
+      <docs>MCS1632R010FER</docs>
+      <footprints>
+        <fp>RES_1206_OHM</fp>
+        <fp>RES_1206_OHM-M</fp>
+        <fp>RES_1206_OHM-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">MCS1632R010FER</field>
+        <field name="Footprint">RES_1206_OHM</field>
+        <field name="Datasheet">MCS1632R010FER</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="unspecified"/>
+        <pin num="2" name="" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="SBRD10200TR" part="SBRD10200TR">
+      <docs>SBRD10200TR</docs>
+      <footprints>
+        <fp>DPAK_SBRD10200_6P6X6P1_SDS</fp>
+        <fp>DPAK_SBRD10200_6P6X6P1_SDS-M</fp>
+        <fp>DPAK_SBRD10200_6P6X6P1_SDS-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">SBRD10200TR</field>
+        <field name="Footprint">DPAK_SBRD10200_6P6X6P1_SDS</field>
+        <field name="Datasheet">SBRD10200TR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="ANODE" type="unspecified"/>
+        <pin num="2" name="BASE_CATHODE" type="unspecified"/>
+        <pin num="3" name="ANODE" type="unspecified"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_BJT" part="2N3904">
+      <description>0.2A Ic, 40V Vce, Small Signal NPN Transistor, TO-92</description>
+      <docs>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</docs>
+      <footprints>
+        <fp>TO?92*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">2N3904</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_BJT" part="2N3906">
+      <description>-0.2A Ic, -40V Vce, Small Signal PNP Transistor, TO-92</description>
+      <docs>https://www.onsemi.com/pub/Collateral/2N3906-D.PDF</docs>
+      <footprints>
+        <fp>TO?92*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">2N3906</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/2N3906-D.PDF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="Si7336ADP">
+      <description>30A Id, 30V Vds, 2.4mOhm Ron, PowerPAK-8</description>
+      <docs>https://www.vishay.com/docs/73152/si7336adp.pdf</docs>
+      <footprints>
+        <fp>PowerPAK*SO*Single*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Si7336ADP</field>
+        <field name="Footprint">Package_SO:PowerPAK_SO-8_Single</field>
+        <field name="Datasheet">https://www.vishay.com/docs/73152/si7336adp.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+        <pin num="4" name="G" type="input"/>
+        <pin num="5" name="D" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="1935789 Terminal">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/1935789 Terminal.kicad_sym</uri>
+    </library>
+    <library logical="7448031002">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/7448031002.kicad_sym</uri>
+    </library>
+    <library logical="CRCW120616R0FKEA">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/CRCW120616R0FKEA.kicad_sym</uri>
+    </library>
+    <library logical="CRCW12061M00FKEA">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/CRCW12061M00FKEA.kicad_sym</uri>
+    </library>
+    <library logical="CRCW12062R43FKEA">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/CRCW12062R43FKEA.kicad_sym</uri>
+    </library>
+    <library logical="EEUFS2A151">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/EEUFS2A151.kicad_sym</uri>
+    </library>
+    <library logical="ESQ-120-XX-X-D-XX">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/ESQ-120-XX-X-D-XX.kicad_sym</uri>
+    </library>
+    <library logical="GRM32EC72A106KE05L">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/GRM32EC72A106KE05L.kicad_sym</uri>
+    </library>
+    <library logical="MCS1632R010FER">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/MCS1632R010FER.kicad_sym</uri>
+    </library>
+    <library logical="SBRD10200TR">
+      <uri>C:/Users/HP USER/Documents/BCIT/7000/WindChargeController-Capstone2024/KiCad/models/symbols/SBRD10200TR.kicad_sym</uri>
+    </library>
+    <library logical="Transistor_BJT">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Transistor_BJT.kicad_sym</uri>
+    </library>
+    <library logical="Transistor_FET">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Transistor_FET.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/D4_con">
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="D4" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D4" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="FL1" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="R9" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="2" name="/DC+">
+      <node ref="D1" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="D2" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="D3" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="J5" pin="3" pinfunction="3" pintype="unspecified"/>
+    </net>
+    <net code="3" name="/FL1_con">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="FL1" pin="4" pinfunction="4" pintype="unspecified"/>
+      <node ref="Q6" pin="5" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="4" name="/Loadswitch">
+      <node ref="D5" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D5" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D6" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D6" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="J6" pin="1" pinfunction="1" pintype="unspecified"/>
+    </net>
+    <net code="5" name="/Q6_drive">
+      <node ref="Q4" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="Q5" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="Q6" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R8" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="6" name="/Q11_con">
+      <node ref="D5" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="Q11" pin="5" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="7" name="/Q11_drive">
+      <node ref="Q11" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="Q7" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="Q8" pin="1" pinfunction="E" pintype="passive"/>
+    </net>
+    <net code="8" name="/Q12_con">
+      <node ref="D6" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="Q12" pin="5" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="9" name="/Q12_drive">
+      <node ref="Q10" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="Q12" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="Q9" pin="1" pinfunction="E" pintype="passive"/>
+    </net>
+    <net code="10" name="/R4_con">
+      <node ref="Q1" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R4" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="11" name="/R5_con">
+      <node ref="Q2" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R5" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="12" name="/R6_con">
+      <node ref="Q3" pin="4" pinfunction="G" pintype="input"/>
+      <node ref="R6" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="13" name="/R9_con">
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="14" name="Brake_sig">
+      <node ref="J2" pin="05" pinfunction="05" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="unspecified"/>
+      <node ref="R5" pin="1" pintype="unspecified"/>
+      <node ref="R6" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="15" name="GND">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C14" pin="1" pintype="unspecified"/>
+      <node ref="C15" pin="1" pintype="unspecified"/>
+      <node ref="C16" pin="1" pintype="unspecified"/>
+      <node ref="C2" pin="1" pintype="unspecified"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="FL1" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="J2" pin="01" pinfunction="01" pintype="passive"/>
+      <node ref="J2" pin="02" pinfunction="02" pintype="passive"/>
+      <node ref="J2" pin="39" pinfunction="39" pintype="passive"/>
+      <node ref="J2" pin="40" pinfunction="40" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="J3" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="J4" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="J4" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="J5" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="J6" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="Q1" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q10" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="Q2" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q5" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="Q6" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q6" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="Q8" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="16" name="Net-(C10-Pad1)">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+    </net>
+    <net code="17" name="Net-(C11-Pad1)">
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+    </net>
+    <net code="18" name="PWM_sig">
+      <node ref="J2" pin="33" pinfunction="33" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="Q5" pin="2" pinfunction="B" pintype="input"/>
+    </net>
+    <net code="19" name="PhaseA+">
+      <node ref="D1" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D1" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="J2" pin="07" pinfunction="07" pintype="passive"/>
+      <node ref="Q1" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="20" name="PhaseA-">
+      <node ref="J1" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="J2" pin="08" pinfunction="08" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="21" name="PhaseB+">
+      <node ref="D2" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D2" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="J2" pin="11" pinfunction="11" pintype="passive"/>
+      <node ref="Q2" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="22" name="PhaseB-">
+      <node ref="J1" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="J2" pin="06" pinfunction="06" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="23" name="PhaseC+">
+      <node ref="D3" pin="1" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="D3" pin="3" pinfunction="ANODE" pintype="unspecified"/>
+      <node ref="J2" pin="09" pinfunction="09" pintype="passive"/>
+      <node ref="Q3" pin="5" pinfunction="D" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="24" name="PhaseC-">
+      <node ref="J1" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="J2" pin="04" pinfunction="04" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="25" name="Power1Out">
+      <node ref="J2" pin="36" pinfunction="36" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="R11" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="26" name="Power2Out">
+      <node ref="J2" pin="32" pinfunction="32" pintype="passive"/>
+      <node ref="J4" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="R12" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="27" name="PowerSW1">
+      <node ref="J2" pin="30" pinfunction="30" pintype="passive"/>
+      <node ref="Q7" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="Q8" pin="2" pinfunction="B" pintype="input"/>
+    </net>
+    <net code="28" name="PowerSW2">
+      <node ref="J2" pin="28" pinfunction="28" pintype="passive"/>
+      <node ref="Q10" pin="2" pinfunction="B" pintype="input"/>
+      <node ref="Q9" pin="2" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="29" name="Shunt1">
+      <node ref="J2" pin="13" pinfunction="13" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="R7" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="30" name="Shunt2">
+      <node ref="C2" pin="2" pintype="unspecified"/>
+      <node ref="FL1" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="J2" pin="15" pinfunction="15" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="31" name="Shunt3">
+      <node ref="C14" pin="2" pintype="unspecified"/>
+      <node ref="C15" pin="2" pintype="unspecified"/>
+      <node ref="C16" pin="2" pintype="unspecified"/>
+      <node ref="D4" pin="2" pinfunction="BASE_CATHODE" pintype="unspecified"/>
+      <node ref="J2" pin="35" pinfunction="35" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="32" name="Shunt4">
+      <node ref="J2" pin="37" pinfunction="37" pintype="passive"/>
+      <node ref="J6" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="R10" pin="2" pintype="unspecified"/>
+    </net>
+    <net code="33" name="Shunt5">
+      <node ref="J2" pin="38" pinfunction="38" pintype="passive"/>
+      <node ref="Q11" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q11" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q11" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="34" name="Shunt7">
+      <node ref="J2" pin="34" pinfunction="34" pintype="passive"/>
+      <node ref="Q12" pin="1" pinfunction="S" pintype="passive"/>
+      <node ref="Q12" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q12" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="unspecified"/>
+    </net>
+    <net code="35" name="Vdrive">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="J2" pin="31" pinfunction="31" pintype="passive"/>
+      <node ref="Q4" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="Q7" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="Q9" pin="3" pinfunction="C" pintype="passive"/>
+    </net>
+    <net code="36" name="unconnected-(J2-Pad03)">
+      <node ref="J2" pin="03" pinfunction="03" pintype="passive"/>
+    </net>
+    <net code="37" name="unconnected-(J2-Pad10)">
+      <node ref="J2" pin="10" pinfunction="10" pintype="passive"/>
+    </net>
+    <net code="38" name="unconnected-(J2-Pad12)">
+      <node ref="J2" pin="12" pinfunction="12" pintype="passive"/>
+    </net>
+    <net code="39" name="unconnected-(J2-Pad14)">
+      <node ref="J2" pin="14" pinfunction="14" pintype="passive"/>
+    </net>
+    <net code="40" name="unconnected-(J2-Pad16)">
+      <node ref="J2" pin="16" pinfunction="16" pintype="passive"/>
+    </net>
+    <net code="41" name="unconnected-(J2-Pad17)">
+      <node ref="J2" pin="17" pinfunction="17" pintype="passive"/>
+    </net>
+    <net code="42" name="unconnected-(J2-Pad18)">
+      <node ref="J2" pin="18" pinfunction="18" pintype="passive"/>
+    </net>
+    <net code="43" name="unconnected-(J2-Pad19)">
+      <node ref="J2" pin="19" pinfunction="19" pintype="passive"/>
+    </net>
+    <net code="44" name="unconnected-(J2-Pad20)">
+      <node ref="J2" pin="20" pinfunction="20" pintype="passive"/>
+    </net>
+    <net code="45" name="unconnected-(J2-Pad21)">
+      <node ref="J2" pin="21" pinfunction="21" pintype="passive"/>
+    </net>
+    <net code="46" name="unconnected-(J2-Pad22)">
+      <node ref="J2" pin="22" pinfunction="22" pintype="passive"/>
+    </net>
+    <net code="47" name="unconnected-(J2-Pad23)">
+      <node ref="J2" pin="23" pinfunction="23" pintype="passive"/>
+    </net>
+    <net code="48" name="unconnected-(J2-Pad24)">
+      <node ref="J2" pin="24" pinfunction="24" pintype="passive"/>
+    </net>
+    <net code="49" name="unconnected-(J2-Pad25)">
+      <node ref="J2" pin="25" pinfunction="25" pintype="passive"/>
+    </net>
+    <net code="50" name="unconnected-(J2-Pad26)">
+      <node ref="J2" pin="26" pinfunction="26" pintype="passive"/>
+    </net>
+    <net code="51" name="unconnected-(J2-Pad27)">
+      <node ref="J2" pin="27" pinfunction="27" pintype="passive"/>
+    </net>
+    <net code="52" name="unconnected-(J2-Pad29)">
+      <node ref="J2" pin="29" pinfunction="29" pintype="passive"/>
+    </net>
+  </nets>
+</export>
