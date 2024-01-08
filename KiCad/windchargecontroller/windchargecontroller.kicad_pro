@@ -386,11 +386,11 @@
   },
   "pcbnew": {
     "last_paths": {
-      "gencad": "",
+      "gencad": "windchargecontroller.cad",
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "windchargecontroller.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
