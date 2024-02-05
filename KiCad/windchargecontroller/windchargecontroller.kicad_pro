@@ -465,7 +465,9 @@
     "meta": {
       "version": 2
     },
-    "net_colors": null
+    "net_colors": {
+      "/D4_con": "rgb(255, 19, 52)"
+    }
   },
   "pcbnew": {
     "last_paths": {
@@ -473,7 +475,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "windchargecontroller.step",
+      "step": "../../../../../../Downloads/windchargecontroller.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
