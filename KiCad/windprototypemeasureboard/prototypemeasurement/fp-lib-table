@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "footprints")(type "KiCad")(uri "C:/Users/Z-Gar/Documents/School/Capstone/WindChargeController-Capstone2024/KiCad/models/footprints")(options "")(descr ""))
+)

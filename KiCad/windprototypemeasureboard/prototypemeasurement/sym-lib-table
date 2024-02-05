@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "prototypemeasurement")(type "KiCad")(uri "${KIPRJMOD}/prototypemeasurement.kicad_sym")(options "")(descr ""))
+)
