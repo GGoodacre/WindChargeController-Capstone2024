@@ -7,4 +7,5 @@
 .cache/
 .vscode/
 build
-esp32s2_modbus_tcp
+components
+.devcontainer/
