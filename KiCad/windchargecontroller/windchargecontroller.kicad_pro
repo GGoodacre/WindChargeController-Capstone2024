@@ -391,11 +391,11 @@
         "name": "Power",
         "nets": [
           "/DC+",
+          "/Loadswitch",
+          "/Q11_con",
           "GND",
           "Power1Out",
           "Power2Out",
-          "PowerSW1",
-          "PowerSW2",
           "Shunt2"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -418,8 +418,6 @@
         "nets": [
           "/D4_con",
           "/FL1_con",
-          "/Loadswitch",
-          "/Q11_con",
           "/Q11_drive",
           "/Q12_drive",
           "/Q6_drive",
@@ -439,6 +437,8 @@
           "PhaseB-",
           "PhaseC+",
           "PhaseC-",
+          "PowerSW1",
+          "PowerSW2",
           "Shunt1",
           "Shunt3",
           "Shunt4",
