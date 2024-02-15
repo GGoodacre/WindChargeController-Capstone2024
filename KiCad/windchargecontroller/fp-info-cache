@@ -1,4 +1,4 @@
-20956339727660526
+20966584274584657
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -87612,12 +87612,26 @@ SBRD10200TR
 3
 3
 footprints
+INA229AIDGSR
+
+
+0
+10
+10
+footprints
 LIND_1-4_2-3_WE-CMBNC_TYPE-M_WRE
 
 7448031002 
 0
 4
 4
+footprints
+MODULE_ESP32-S2-DEVKITC-1
+
+
+0
+44
+44
 footprints
 PTP0176F_L
 
@@ -87703,6 +87717,13 @@ CRCW12062R43FKEA
 2
 2
 footprints
+SAMTEC-SLW-122-01-X-S
+translated Allegro footprint
+
+0
+22
+22
+footprints
 SAMTEC_ESQ-120-XX-X-D-XX
 
 
@@ -87751,6 +87772,27 @@ JW60ZT0R00
 0
 2
 2
+footprints
+TS3B
+
+LM1084ISX-5.0/NOPB 
+0
+4
+4
+footprints
+TS3B-L
+
+LM1084ISX-5.0/NOPB 
+0
+4
+4
+footprints
+TS3B-M
+
+LM1084ISX-5.0/NOPB 
+0
+4
+4
 footprints
 bonfire
 
