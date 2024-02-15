@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "7.0.10"
     },
-    "CreationDate": "2024-02-05T13:04:53-08:00"
+    "CreationDate": "2024-02-12T14:11:10-08:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -35,6 +35,21 @@
       "Path": "prototypemeasurement-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
+    },
+    {
+      "Path": "prototypemeasurement-F_Adhesive.gbr",
+      "FileFunction": "Glue,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "prototypemeasurement-F_Silkscreen.gbr",
+      "FileFunction": "Legend,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "prototypemeasurement-F_Mask.gbr",
+      "FileFunction": "SolderMask,Top",
+      "FilePolarity": "Negative"
     },
     {
       "Path": "prototypemeasurement-Edge_Cuts.gbr",
