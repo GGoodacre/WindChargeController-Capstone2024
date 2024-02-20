@@ -1,3 +1,17 @@
 build/
 sdkconfig
 sdkconfig.old
+
+.config
+*.o
+*.pyc
+*~
+.#*
+\#*#
+.cache/
+.vscode/
+build
+components/espressif__mdns
+components/arduino
+.devcontainer/
+managed_components
