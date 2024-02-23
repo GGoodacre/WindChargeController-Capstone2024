@@ -4,10 +4,11 @@
 
 
 #ifndef POWERELECPINS
-    #define NUMBER_OF_PINS  3
+    #define NUMBER_OF_PINS  4
     #define RECTIFIER_PIN   12
     #define SEPIC_PIN       13
-    #define LOAD_PIN        14
+    #define PS1_PIN        14
+    #define PS2_PIN        11
 #endif
 
 #ifndef PWM_PARAMETERS
@@ -16,7 +17,8 @@
   #define FREQ         300000
   #define RECTIFIER_INDEX   0
   #define SEPIC_INDEX       1
-  #define LOAD_INDEX        2
+  #define PS1_INDEX        2
+  #define PS2_INDEX        3
 #endif
 
 class PowerElectronics {

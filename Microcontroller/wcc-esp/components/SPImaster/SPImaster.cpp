@@ -13,7 +13,28 @@ SPImaster::SPImaster()
 
 bool SPImaster::config(int cs)
 {
-    return false;
+    pinMode(cs, OUTPUT);
+    digitalWrite(cs, HIGH);
+/*
+    //CONFIG REGISTER SETUP
+    int config_word = ( CONFIG_RST | CONFIG_RSTACC | CONFIG_CONVDLY | CONFIG_TEMPCOMP | CONFIG_ADCRANGE );
+    write(cs, CONFIG, config_word);
+
+    //ADC_CONFIG REGISTER SETUP
+    config_word = ( ADC_CONFIG_MODE | ADC_CONFIG_VBUSCT | ADC_CONFIG_VSHCT | ADC_CONFIG_VTCT | ADC_CONFIG_AVG );             
+    write(cs, ADC_CONFIG, config_word);
+
+    //SHUNT_CAL REGISTER SETUP
+    float shunt_cal = (13107.2*pow(10,6))*(CURRENT_MAX/pow(2,19))*R_SHUNT;
+    if ((CONFIG_ADCRANGE) > 0) shunt_cal = shunt_cal*4;
+    config_word = (int)shunt_cal;
+    write(cs, SHUNT_CAL, config_word);
+
+    //SHUNT_TEMPCO REGISTER SETUP
+    config_word = SHUNT_TEMPCO_TEMPCO;
+    write(cs, SHUNT_TEMPCO, config_word);
+*/
+    return true;
 }
 
 bool SPImaster::write(int cs, int register_addr, int data)
@@ -26,21 +47,46 @@ bool SPImaster::write(int cs, int register_addr, int data)
     this->spi->transfer(&buff, WRITE_SIZE);
     digitalWrite(cs, HIGH);
     this->spi->endTransaction();
+    ESP_LOGI(SPI_TAG, "Register: %d  |  Data Written: %d", register_addr, (int)data);
     return true;
 }
 
 bool SPImaster::read(int cs, int register_addr, long &data)
 {
-    byte buff =  (register_addr << READ_REGISTER_SHIFT) | (READ_REGISTER << READ_RW_SHIFT);
+    data = 0;
+    int size;
+    if (register_addr == MANUFACTURER_ID || register_addr == DEVICE_ID)
+    {
+        size = 3;
+    }
+    else
+    {
+        size = (register_size[register_addr])/8 + 1;
+    }
+    uint8_t tx[size];
+    uint8_t rx[size];
+
+    for(int i = 0; i < size; i++)
+    {
+        rx[i] = 0;
+        tx[i] = 0;
+    }
+    tx[0] = (register_addr << READ_REGISTER_SHIFT) | (READ_REGISTER << READ_RW_SHIFT);
+
     this->spi->beginTransaction(SPISettings(spiClk, MSBFIRST, SPI_MODE1));
     digitalWrite(cs, LOW);
-    data = this->spi->transfer(buff);
-    for(int i = 0; i < (register_size[register_addr] / 8) - 1; i++)
-    {
-        data = data << 8 | this->spi->transfer(0x00);
-    }
+
+    this->spi->transferBytes(tx, rx, size);
+
     digitalWrite(cs, HIGH);
     this->spi->endTransaction();
+
+    for(int i = 0; i < size; i++)
+    {
+        data = data | rx[i] << (i*8);
+    }
+
+    ESP_LOGI(SPI_TAG, "Register: %d  |  Data Read: %d", register_addr, (int)data);
     return true;
 }
 

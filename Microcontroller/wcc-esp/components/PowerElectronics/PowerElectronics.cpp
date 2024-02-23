@@ -32,17 +32,26 @@ PowerElectronics::PowerElectronics()
     channel_config[SEPIC_INDEX].duty           = 0;
     channel_config[SEPIC_INDEX].hpoint         = 0;
 
-    channel_config[LOAD_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
-    channel_config[LOAD_INDEX].channel        = LEDC_CHANNEL_2;
-    channel_config[LOAD_INDEX].timer_sel      = LEDC_TIMER_0;
-    channel_config[LOAD_INDEX].intr_type      = LEDC_INTR_DISABLE;
-    channel_config[LOAD_INDEX].gpio_num       = LOAD_PIN;
-    channel_config[LOAD_INDEX].duty           = 0;
-    channel_config[LOAD_INDEX].hpoint         = 0;
+    channel_config[PS1_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
+    channel_config[PS1_INDEX].channel        = LEDC_CHANNEL_2;
+    channel_config[PS1_INDEX].timer_sel      = LEDC_TIMER_0;
+    channel_config[PS1_INDEX].intr_type      = LEDC_INTR_DISABLE;
+    channel_config[PS1_INDEX].gpio_num       = PS1_PIN;
+    channel_config[PS1_INDEX].duty           = 0;
+    channel_config[PS1_INDEX].hpoint         = 0;
+
+    channel_config[PS2_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
+    channel_config[PS2_INDEX].channel        = LEDC_CHANNEL_3;
+    channel_config[PS2_INDEX].timer_sel      = LEDC_TIMER_0;
+    channel_config[PS2_INDEX].intr_type      = LEDC_INTR_DISABLE;
+    channel_config[PS2_INDEX].gpio_num       = PS2_PIN;
+    channel_config[PS2_INDEX].duty           = 0;
+    channel_config[PS2_INDEX].hpoint         = 0;
 
     ESP_ERROR_CHECK(ledc_channel_config(&channel_config[RECTIFIER_INDEX]));
     ESP_ERROR_CHECK(ledc_channel_config(&channel_config[SEPIC_INDEX]));
-    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[LOAD_INDEX]));
+    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[PS1_INDEX]));
+    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[PS2_INDEX]));
 
 }
 
