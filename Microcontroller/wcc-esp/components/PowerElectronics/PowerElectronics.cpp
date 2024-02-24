@@ -47,6 +47,7 @@ PowerElectronics::PowerElectronics()
     channel_config[PS2_INDEX].gpio_num       = PS2_PIN;
     channel_config[PS2_INDEX].duty           = 0;
     channel_config[PS2_INDEX].hpoint         = 0;
+    channel_config[PS2_INDEX].flags.output_invert = 0;
 
     ESP_ERROR_CHECK(ledc_channel_config(&channel_config[RECTIFIER_INDEX]));
     ESP_ERROR_CHECK(ledc_channel_config(&channel_config[SEPIC_INDEX]));

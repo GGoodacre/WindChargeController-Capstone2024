@@ -133,8 +133,15 @@ class SPImaster
     */ 
   #define CURRENT_MAX 10
   #define R_SHUNT 0.01
-
   #define SHUNT_TEMPCO_TEMPCO 0x0
+
+  #define SHUNTVOLTAGE_LSB    (312.5e-9)
+  #define CURRENT_LSB         (CURRENT_MAX / (pow(2, 19)))
+  #define BUSVOLTAGE_LSB      (195.3125e-6)
+  #define POWER_LSB           (CURRENT_LSB * 3.2)
+  #define ENERGY_LSB          (POWER_LSB * 16)
+  #define CHARGE_LSB          (CURRENT_LSB)
+  #define TEMPERATURE_LSB     (7.8125e-3)
 
   #define WRITE_REGISTER    0x0
   #define WRITE_SIZE        0x03

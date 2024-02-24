@@ -15,7 +15,7 @@ bool SPImaster::config(int cs)
 {
     pinMode(cs, OUTPUT);
     digitalWrite(cs, HIGH);
-/*
+
     //CONFIG REGISTER SETUP
     int config_word = ( CONFIG_RST | CONFIG_RSTACC | CONFIG_CONVDLY | CONFIG_TEMPCOMP | CONFIG_ADCRANGE );
     write(cs, CONFIG, config_word);
@@ -33,7 +33,7 @@ bool SPImaster::config(int cs)
     //SHUNT_TEMPCO REGISTER SETUP
     config_word = SHUNT_TEMPCO_TEMPCO;
     write(cs, SHUNT_TEMPCO, config_word);
-*/
+
     return true;
 }
 
@@ -83,7 +83,7 @@ bool SPImaster::read(int cs, int register_addr, long &data)
 
     for(int i = 0; i < size; i++)
     {
-        data = data | rx[i] << (i*8);
+        data = data | rx[i] << (((size - 1) - i)*8);
     }
 
     ESP_LOGI(SPI_TAG, "Register: %d  |  Data Read: %d", register_addr, (int)data);

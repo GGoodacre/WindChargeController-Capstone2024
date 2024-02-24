@@ -2,70 +2,89 @@
 #include "SPImaster.hpp"
 #include <array>
 
-/*
-REGISTER DESCRIPTIONS
-VSHUNT: Differential voltage measured across the shunt output. Two's complement value. Conversion factor: 312.5 nV/LSB when ADCRANGE = 0 78.125 nV/LSB when ADCRANGE = 1
-VBUS: Bus voltage output. Two's complement value, however always positive. Conversion factor: 195.3125 µV/LSB
-DIETEMP: Internal die temperature measurement. Two's complement value. Conversion factor: 7.8125 m°C/LSB
-CURRENT: Calculated current output in Amperes. Two's complement value.
-POWER: Calculated power output. Output value in watts. Unsigned representation. Positive value.
-ENERGY: Calculated energy output. Output value is in Joules. Unsigned representation. Positive value.
-CHARGE: Calculated charge output. Output value is in Coulombs. Two's complement value.
-*/
-/*
-struct _device_values {
-    int vshunt,
-    int vbus,
-    int dietemp,
-    int current,
-    int power,
-    int energy,
-    int charge
+
+enum ALGORITHMS {
+    MPPT,
+    MCPT,
+    MANUAL
 };
 
 
+struct _device_values {
+    double vshunt;
+    double vbus;
+    double dietemp;
+    double current;
+    double power;
+    double energy;
+    double charge;
+
+    bool en;
+    std::array<bool, 7> en_measurement;
+    int device_pin;
+};
+
+#define TOTAL_MEASUREMENT_DEVICES 7
+
 class HardwareControl {
     public:
+        HardwareControl();
+        ~HardwareControl();
+
         void setAlgoriithm(int type) { _algorithm = type; };
         int getAlgoriithm() { return _algorithm; };
 
         void setPWM(int id, int value) { if(_algorithm == MANUAL) _pwm_values[id] = value; };
         int getPWM(int id) { return _pwm_values[id]; };
 
-        bool update();
+        void setDeviceEN(int id, bool en) { _devices[id].en = en; };
+        bool getDeviceEN(int id) {return _devices[id].en; };
+
+        void setMeasurementEN(int id, bool en) { _devices[id].en = en; };
+        bool getMeasurementEN(int id) {return _devices[id].en; };
 
         _device_values getDeviceParams(int id) { return _devices[id]; };
+        std::array<_device_values, TOTAL_MEASUREMENT_DEVICES> getAllDeviceParams() { return _devices; };
+
+        bool update();
     private:
+
         PowerElectronics _pwm;
         SPImaster _spi;
 
         int _algorithm;
-        array<int> _pwm_values[3];
-        array<_device_values> _devices[7];
+        std::array<int, 3> _pwm_values;
+        std::array<_device_values, TOTAL_MEASUREMENT_DEVICES> _devices;
+
+        void update_measurements();
+        void update_pwm();
 
         void mppt();
         void mcpt();
 };
 
-enum ALGORITHMS {
-    MPPT,
-    MCPT,
-    MANUAL
-}
-
 enum PWM_INDEX {
-    RECTIFIER,
-    SEPIC,
-    LOAD
-}
+    PWM_RECTIFIER,
+    PWM_SEPIC,
+    PWM_LOAD
+};
 
-enum MEASUREMENT_INDEX {
-    VOLTAGE_SHUNT,
-    VOLTAGE_BUS,
-    DIE_TEMP,
-    CURRENT,
-    POWER,
-    ENERGY,
-    CHARGE
-}
-*/
+enum DEVICE_VALUE_INDEX {
+    DEVICEVALUE_VOLTAGE_SHUNT,
+    DEVICEVALUE_VOLTAGE_BUS,
+    DEVICEVALUE_DIE_TEMP,
+    DEVICEVALUE_CURRENT,
+    DEVICEVALUE_POWER,
+    DEVICEVALUE_ENERGY,
+    DEVICEVALUE_CHARGE
+};
+
+enum DEVICE_INDEX {
+    DEVICEINDEX_R1_THREEPHASE,
+    DEVICEINDEX_R2_THREEPHASE,
+    DEVICEINDEX_R3_THREEPHASE,
+    DEVICEINDEX_R4_RECTIFIED,
+    DEVICEINDEX_R7_BUCK,
+    DEVICEINDEX_R8_BATTERY,
+    DEVICEINDEX_R9_DUMP,
+};
