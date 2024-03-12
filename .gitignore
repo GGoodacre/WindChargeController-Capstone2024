@@ -6,3 +6,5 @@
 *.kicad_prl
 *.kicad_pro
 *.kicad_pcb.lck
+*.kicad_sch.lck
+*.lck
