@@ -5,60 +5,43 @@
 #include "driver/ledc.h"
 
 
-PowerElectronics::PowerElectronics()
+PowerElectronics::PowerElectronics(ledc_timer_bit_t resolution, int freq, ledc_timer_t timer) : 
+  RESOLUTION    (resolution),
+  MAX_DUTY      ((1 << RESOLUTION) - 1),
+  FREQ          (freq),
+  TIMER         (timer)
 {
 
     timer_config.duty_resolution = RESOLUTION;
     timer_config.freq_hz = FREQ;
-    timer_config.timer_num = LEDC_TIMER_0;
+    timer_config.timer_num = TIMER;
     timer_config.speed_mode = LEDC_LOW_SPEED_MODE;
     timer_config.clk_cfg = LEDC_AUTO_CLK;
 
     ESP_ERROR_CHECK(ledc_timer_config(&timer_config));
 
-    channel_config[RECTIFIER_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
-    channel_config[RECTIFIER_INDEX].channel        = LEDC_CHANNEL_0;
-    channel_config[RECTIFIER_INDEX].timer_sel      = LEDC_TIMER_0;
-    channel_config[RECTIFIER_INDEX].intr_type      = LEDC_INTR_DISABLE;
-    channel_config[RECTIFIER_INDEX].gpio_num       = RECTIFIER_PIN;
-    channel_config[RECTIFIER_INDEX].duty           = 0;
-    channel_config[RECTIFIER_INDEX].hpoint         = 0;
-
-    channel_config[SEPIC_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
-    channel_config[SEPIC_INDEX].channel        = LEDC_CHANNEL_1;
-    channel_config[SEPIC_INDEX].timer_sel      = LEDC_TIMER_0;
-    channel_config[SEPIC_INDEX].intr_type      = LEDC_INTR_DISABLE;
-    channel_config[SEPIC_INDEX].gpio_num       = SEPIC_PIN;
-    channel_config[SEPIC_INDEX].duty           = 0;
-    channel_config[SEPIC_INDEX].hpoint         = 0;
-
-    channel_config[PS1_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
-    channel_config[PS1_INDEX].channel        = LEDC_CHANNEL_2;
-    channel_config[PS1_INDEX].timer_sel      = LEDC_TIMER_0;
-    channel_config[PS1_INDEX].intr_type      = LEDC_INTR_DISABLE;
-    channel_config[PS1_INDEX].gpio_num       = PS1_PIN;
-    channel_config[PS1_INDEX].duty           = 0;
-    channel_config[PS1_INDEX].hpoint         = 0;
-
-    channel_config[PS2_INDEX].speed_mode     = LEDC_LOW_SPEED_MODE;
-    channel_config[PS2_INDEX].channel        = LEDC_CHANNEL_3;
-    channel_config[PS2_INDEX].timer_sel      = LEDC_TIMER_0;
-    channel_config[PS2_INDEX].intr_type      = LEDC_INTR_DISABLE;
-    channel_config[PS2_INDEX].gpio_num       = PS2_PIN;
-    channel_config[PS2_INDEX].duty           = 0;
-    channel_config[PS2_INDEX].hpoint         = 0;
-    channel_config[PS2_INDEX].flags.output_invert = 0;
-
-    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[RECTIFIER_INDEX]));
-    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[SEPIC_INDEX]));
-    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[PS1_INDEX]));
-    ESP_ERROR_CHECK(ledc_channel_config(&channel_config[PS2_INDEX]));
-
 }
 
-void PowerElectronics::setDUTY(int duty_cycle, int index)
+bool PowerElectronics::config(ledc_channel_t channel, int pin, int invert)
+{
+    ledc_channel_config_t channel_config;
+    channel_config.speed_mode     = LEDC_LOW_SPEED_MODE;
+    channel_config.channel        = channel;
+    channel_config.timer_sel      = TIMER;
+    channel_config.intr_type      = LEDC_INTR_DISABLE;
+    channel_config.gpio_num       = pin;
+    channel_config.duty           = 0;
+    channel_config.hpoint         = 0;
+    channel_config.flags.output_invert = invert;
+    
+    ESP_ERROR_CHECK(ledc_channel_config(&channel_config));
+
+    return true;
+}
+
+void PowerElectronics::setDUTY(float duty_cycle, ledc_channel_t index)
 {
     uint32_t duty = (((int)MAX_DUTY) * duty_cycle) / 100;
-    ESP_ERROR_CHECK(ledc_set_duty(LEDC_LOW_SPEED_MODE, ledc_channel_t(index), duty));
-    ESP_ERROR_CHECK(ledc_update_duty(LEDC_LOW_SPEED_MODE, ledc_channel_t(index)));
+    ESP_ERROR_CHECK(ledc_set_duty(LEDC_LOW_SPEED_MODE, index, duty));
+    ESP_ERROR_CHECK(ledc_update_duty(LEDC_LOW_SPEED_MODE, index));
 }

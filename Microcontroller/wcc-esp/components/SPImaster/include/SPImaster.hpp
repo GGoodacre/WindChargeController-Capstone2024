@@ -1,3 +1,4 @@
+#pragma once
 #include "Arduino.h"
 #include <SPI.h>
 
@@ -15,49 +16,38 @@ static const char* SPI_TAG = "SPI";
 class SPImaster 
 {
     public:
-    SPImaster();
+    SPImaster(float max_current, float r_shunt);
 
     bool config(int cs);
+    bool config(int cs, int config, int adc_config);
+    void reset(int cs);
+
+    bool read(int cs, int register_addr, float& data);
     bool write(int cs, int register_addr, int data);
-    bool read(int cs, int register_addr, long& data);
+    bool read(int cs, int register_addr, long long& data);
 
     private:
 
-    SPIClass *spi = NULL;
+    SPIClass *spi = new SPIClass(VSPI);
     static const int spiClk = 10000;
     void flipBytes(int &data);
-    std::array<int, 18> register_size = {
-        16,
-        16,
-        16,
-        16,
-        24,
-        24,
-        16,
-        24,
-        24,
-        40,
-        40,
-        16,
-        16,
-        16,
-        16,
-        16,
-        16,
-        16
-    };
+
+    const std::array<int, 18> register_size;
+
+    const float CURRENT_MAX;
+    const float R_SHUNT;
+    const float SHUNT_TEMPCO_TEMPCO;
+
+    const float SHUNTVOLTAGE_LSB;
+    const float CURRENT_LSB;
+    const float BUSVOLTAGE_LSB;
+    const float POWER_LSB;
+    const float ENERGY_LSB;
+    const float CHARGE_LSB;
+    const float TEMPERATURE_LSB;
+    const float SHUNT_CAL_VALUE;
 
 };
-
-#ifndef CS_PINS
-  #define R1_AC_THREEPHASE  1
-  #define R2_AC_THREEPHASE  2
-  #define R3_AC_THREEPHASE  3
-  #define R4_DC_RECTIFIED   4
-  #define R7_DC_BUCK        7
-  #define R8_DC_BATTERY     8
-  #define R9_DC_DUMP        9
-#endif
 
 #ifndef REGISTER_ADDRESS
   #define CONFIG            0x0
@@ -121,27 +111,10 @@ class SPImaster
   #define CONFIG_ADCRANGE 0x1 << 4 
 
   #define ADC_CONFIG_MODE 0xF << 12
-  #define ADC_CONFIG_VBUSCT 0x0 << 9    
-  #define ADC_CONFIG_VSHCT 0x0 << 6   
-  #define ADC_CONFIG_VTCT 0x0 << 3   
-  #define ADC_CONFIG_AVG 0x1 << 0   
-
-    /*
-    SHUNT_CAL = 13107.2 x 10^6 x CURRENT_LSB x R_SHUNT
-    CURRENT_LSB = CURRENT_MAX/2^19
-    SHUNT_CAL = SHUNT_CAL*4 if ADCRANGE = 1
-    */ 
-  #define CURRENT_MAX 10
-  #define R_SHUNT 0.01
-  #define SHUNT_TEMPCO_TEMPCO 0x0
-
-  #define SHUNTVOLTAGE_LSB    (312.5e-9)
-  #define CURRENT_LSB         (CURRENT_MAX / (pow(2, 19)))
-  #define BUSVOLTAGE_LSB      (195.3125e-6)
-  #define POWER_LSB           (CURRENT_LSB * 3.2)
-  #define ENERGY_LSB          (POWER_LSB * 16)
-  #define CHARGE_LSB          (CURRENT_LSB)
-  #define TEMPERATURE_LSB     (7.8125e-3)
+  #define ADC_CONFIG_VBUSCT 0x2 << 9    
+  #define ADC_CONFIG_VSHCT 0x2 << 6   
+  #define ADC_CONFIG_VTCT 0x2 << 3   
+  #define ADC_CONFIG_AVG 0x4 << 0   
 
   #define WRITE_REGISTER    0x0
   #define WRITE_SIZE        0x03
