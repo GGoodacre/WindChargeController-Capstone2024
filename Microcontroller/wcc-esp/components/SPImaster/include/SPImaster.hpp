@@ -3,10 +3,10 @@
 #include <SPI.h>
 
 #ifndef SPI_PINS
-  #define VSPI_MISO   MISO
-  #define VSPI_MOSI   MOSI
-  #define VSPI_SCLK   SCK
-  #define VSPI_SS     SS
+  #define VSPI_MISO   36
+  #define VSPI_MOSI   21
+  #define VSPI_SCLK   35
+  #define VSPI_SS     3
 
   #define VSPI FSPI
 #endif
@@ -29,7 +29,7 @@ class SPImaster
     private:
 
     SPIClass *spi = new SPIClass(VSPI);
-    static const int spiClk = 10000;
+    static const int spiClk = 1000000;
     void flipBytes(int &data);
 
     const std::array<int, 18> register_size;
@@ -108,13 +108,13 @@ class SPImaster
   #define CONFIG_RSTACC 0x0 << 14   
   #define CONFIG_CONVDLY 0x0 << 6  
   #define CONFIG_TEMPCOMP 0x0 << 5   
-  #define CONFIG_ADCRANGE 0x1 << 4 
+  #define CONFIG_ADCRANGE 0x0 << 4 
 
-  #define ADC_CONFIG_MODE 0xF << 12
-  #define ADC_CONFIG_VBUSCT 0x2 << 9    
-  #define ADC_CONFIG_VSHCT 0x2 << 6   
-  #define ADC_CONFIG_VTCT 0x2 << 3   
-  #define ADC_CONFIG_AVG 0x4 << 0   
+  #define ADC_CONFIG_MODE 0x7 << 12
+  #define ADC_CONFIG_VBUSCT 0x0 << 9    
+  #define ADC_CONFIG_VSHCT 0x0 << 6   
+  #define ADC_CONFIG_VTCT 0x0 << 3   
+  #define ADC_CONFIG_AVG 0x0 << 0   
 
   #define WRITE_REGISTER    0x0
   #define WRITE_SIZE        0x03

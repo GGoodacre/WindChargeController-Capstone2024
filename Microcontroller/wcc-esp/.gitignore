@@ -12,6 +12,5 @@ sdkconfig.old
 .vscode/
 build
 components/espressif__mdns
-components/arduino
 .devcontainer/
 managed_components

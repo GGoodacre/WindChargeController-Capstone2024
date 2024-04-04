@@ -3,9 +3,14 @@
 #include "PowerElectronics.hpp"
 #include "SPImaster.hpp"
 #include <array>
+#include <vector>
 #include "QuickPID.h"
 
 
+
+
+constexpr int AVG_SIZE = 16;
+#define TRIM_PERCENT 0.125
 struct _device_values_t {
     float vshunt;
     float vbus;
@@ -14,6 +19,15 @@ struct _device_values_t {
     float power;
     float energy;
     float charge;
+
+    std::vector<float> vshunt_array;  
+    std::vector<float> vbus_array;  
+    std::vector<float> dietemp_array;  
+    std::vector<float> current_array;  
+    std::vector<float> power_array;    
+    std::vector<float> energy_array;  
+    std::vector<float> charge_array;
+    int array_index;  
 
     bool en;
     std::array<bool, 7> en_measurement;
@@ -78,25 +92,33 @@ class Control {
 
         virtual bool update();
         bool testDevice(int id);
+        long long getDIAG(int id);
     protected:
 
         void config();
+
+        std::array<_device_values_t, device_size> _devices;
 
         PowerElectronics _pwm;
         SPImaster _spi;
 
         int _algorithm;
         std::array<_pwm_values_t, pwm_size> _pwm_values;
-        std::array<_device_values_t, device_size> _devices;
+
 
         virtual void update_measurements();
         virtual void update_pwm();
 
         virtual void PID_control() = 0;
+
+        void calculateAVG(_device_values_t &device);
+        void calculateAVG(float &result, std::vector<float> data);
+        std::array<_device_values_t, device_size> init_devices();
 };
 
 template<size_t pwm_size, size_t device_size>
 Control<pwm_size, device_size>::Control(ledc_timer_bit_t resolution, int freq, ledc_timer_t timer, float max_current, float r_shunt) : 
+    _devices (init_devices()),
     _pwm (PowerElectronics(resolution, freq, timer)),
     _spi (SPImaster(max_current, r_shunt))
 {
@@ -108,11 +130,53 @@ Control<pwm_size, device_size>::~Control()
 }
 
 template<size_t pwm_size, size_t device_size>
+std::array<_device_values_t, device_size> Control<pwm_size, device_size>::init_devices()
+{
+    std::array<_device_values_t, device_size> dev;
+
+    for(int i = 0; i < device_size; i++)
+    {
+        for(int j = 0; j < AVG_SIZE; j++)
+        {
+            dev[i].vshunt_array.push_back(0);
+            dev[i].vbus_array.push_back(0);
+            dev[i].dietemp_array.push_back(0);
+            dev[i].current_array.push_back(0);
+            dev[i].power_array.push_back(0);
+            dev[i].energy_array.push_back(0);
+            dev[i].charge_array.push_back(0);
+        }
+        dev[i].vshunt = 0;
+        dev[i].vbus = 0;
+        dev[i].dietemp = 0;
+        dev[i].current = 0;
+        dev[i].power = 0;
+        dev[i].energy = 0;
+        dev[i].charge = 0;
+        dev[i].array_index = 0;
+        dev[i].en = false;
+        dev[i].device_pin = 0;
+
+        for(int j = 0; j < 7; j++)
+        {
+            dev[i].en_measurement[j] = 0;
+        }
+    }
+    return dev;
+}
+
+template<size_t pwm_size, size_t device_size>
 bool Control<pwm_size, device_size>::update()
 {
-    update_measurements();
     update_pwm();
-    return false;
+    if(update_measurements())
+    {
+        return true;
+    }
+    else
+    {
+        return false;   
+    }
 }
 
 template <size_t pwm_size, size_t device_size>
@@ -156,40 +220,53 @@ void Control<pwm_size, device_size>::update_measurements()
     {
         if(_devices[i].en)
         {
-            if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_SHUNT])
+            if(getDIAG(i) & 0b10)
             {
-                _spi.read(_devices[i].device_pin, VSHUNT, rx);
-                _devices[i].vshunt = rx;
+                if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_SHUNT])
+                {
+                    _spi.read(_devices[i].device_pin, VSHUNT, rx);
+                    _devices[i].vshunt_array[_devices[i].array_index] = rx;
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_BUS])
+                {
+                    _spi.read(_devices[i].device_pin, VBUS, rx);
+                    _devices[i].vbus_array[_devices[i].array_index] = rx;
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_DIE_TEMP])
+                {
+                    _spi.read(_devices[i].device_pin, DIETEMP, rx);
+                    _devices[i].dietemp_array[_devices[i].array_index] = rx;               
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_CURRENT])
+                {
+                    _spi.read(_devices[i].device_pin, CURRENT, rx);
+                    _devices[i].current_array[_devices[i].array_index] = rx;                 
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_POWER])
+                {
+                    _spi.read(_devices[i].device_pin, POWER, rx);
+                    _devices[i].power_array[_devices[i].array_index] = rx;                 
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_ENERGY])
+                {
+                    _spi.read(_devices[i].device_pin, ENERGY, rx);
+                    _devices[i].energy_array[_devices[i].array_index] = rx;                 
+                }
+                if(_devices[i].en_measurement[DEVICEVALUE_CHARGE])
+                {
+                    _spi.read(_devices[i].device_pin, CHARGE, rx);
+                    _devices[i].charge_array[_devices[i].array_index] = rx;                  
+                }
+                _devices[i].array_index++;
+                if(_devices[i].array_index >= AVG_SIZE)
+                {
+                    _devices[i].array_index = 0;
+                    calculateAVG(_devices[i]);
+                }
             }
-            if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_BUS])
+            else
             {
-                _spi.read(_devices[i].device_pin, VBUS, rx);
-                _devices[i].vbus = rx;
-            }
-            if(_devices[i].en_measurement[DEVICEVALUE_DIE_TEMP])
-            {
-                _spi.read(_devices[i].device_pin, DIETEMP, rx);
-                _devices[i].dietemp = rx;               
-            }
-            if(_devices[i].en_measurement[DEVICEVALUE_CURRENT])
-            {
-                _spi.read(_devices[i].device_pin, CURRENT, rx);
-                _devices[i].current = rx;                 
-            }
-            if(_devices[i].en_measurement[DEVICEVALUE_POWER])
-            {
-                _spi.read(_devices[i].device_pin, POWER, rx);
-                _devices[i].dietemp = rx;                 
-            }
-            if(_devices[i].en_measurement[DEVICEVALUE_ENERGY])
-            {
-                 _spi.read(_devices[i].device_pin, ENERGY, rx);
-                _devices[i].dietemp = rx;                 
-            }
-            if(_devices[i].en_measurement[DEVICEVALUE_CHARGE])
-            {
-                _spi.read(_devices[i].device_pin, CHARGE, rx);
-                _devices[i].dietemp = rx;                  
+                _spi.write(_devices[i].device_pin, ADC_CONFIG, ADC_CONFIG_MODE);
             }
         }
     }
@@ -226,4 +303,68 @@ bool Control<pwm_size, device_size>::testDevice(int id)
     {
         return false;
     }
+}
+
+template<size_t pwm_size, size_t device_size>
+long long Control<pwm_size, device_size>::getDIAG(int id)
+{ 
+    //Checks to see if we can read the manufacturer id from the device
+    long long data;
+    _spi.read(_devices[id].device_pin, DIAG_ALRT, data);
+    ESP_LOGI(CONTROL_TAG, "DIAG: %lld", data);
+    return data;
+}
+
+template<size_t pwm_size, size_t device_size>
+void Control<pwm_size, device_size>::calculateAVG(_device_values_t &device)
+{
+    if(device.en_measurement[DEVICEVALUE_VOLTAGE_SHUNT])
+    {
+        calculateAVG(device.vshunt, device.vshunt_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_VOLTAGE_BUS])
+    {
+        calculateAVG(device.vbus, device.vbus_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_DIE_TEMP])
+    {
+        calculateAVG(device.dietemp, device.dietemp_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_CURRENT])
+    {
+        calculateAVG(device.current, device.current_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_POWER])
+    {
+        calculateAVG(device.power, device.power_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_ENERGY])
+    {
+        calculateAVG(device.energy, device.energy_array);
+    }
+    if(device.en_measurement[DEVICEVALUE_CHARGE])
+    {
+        calculateAVG(device.charge, device.charge_array);
+    }
+    
+}
+
+template<size_t pwm_size, size_t device_size>
+void Control<pwm_size, device_size>::calculateAVG(float &result, std::vector<float> data)
+{
+    int trim_count = static_cast<int>(data.size() * TRIM_PERCENT);
+    std::sort(data.begin(), data.end());
+    
+    float sum = 0;
+
+    data.erase(data.begin(), data.begin() + trim_count); // Trim lowest values
+    data.erase(data.end() - trim_count, data.end()); // Trim highest values
+
+    for (int i = 0; i < data.size(); i++) {
+        sum = sum + data.at(i);
+        //ESP_LOGI(CONTROL_TAG, "CURRENT SUM: %f", sum);
+    }
+    //ESP_LOGI(CONTROL_TAG, "SUM RESULT: %f", sum);
+    //ESP_LOGI(CONTROL_TAG, "AVG RESULT: %f", static_cast<float>(sum) / data.size());
+    result = static_cast<float>(sum) / data.size();
 }

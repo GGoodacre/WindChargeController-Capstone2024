@@ -28,18 +28,28 @@ enum DEVICE_INDEX {
 };
 
 #ifndef CS_PINS
-  #define R1_AC_THREEPHASE  1
-  #define R2_AC_THREEPHASE  2
-  #define R3_AC_THREEPHASE  42
-  #define R4_DC_RECTIFIED   41
-  #define R7_DC_BUCK        40
-  #define R8_DC_BATTERY     39
-  #define R9_DC_DUMP        38
+  #define R1_AC_THREEPHASE  39
+  #define R2_AC_THREEPHASE  38
+  #define R3_AC_THREEPHASE  37
+  #define R4_DC_RECTIFIED   2
+  #define R7_DC_BUCK        42
+  #define R8_DC_BATTERY     41
+  #define R9_DC_DUMP        40
+#endif
+
+#ifndef LED_PINS
+    #define LED_1 16
+    #define LED_2 15
+    #define LED_3 7
+    #define LED_4 6
+    #define LED_5 5
+    #define LED_6 4
 #endif
 
 #ifndef POWERELECPINS
-    #define RECTIFIER_PIN   19
-    #define SEPIC_PIN       44
+    #define RECTIFIER_PIN   33
+    #define HIGHSIDE_RECTIFIER_PIN 34
+    #define SEPIC_PIN       1
     #define PS1_PIN        19
     #define PS2_PIN        20
 #endif
@@ -50,10 +60,10 @@ enum DEVICE_INDEX {
   #define PS1_INDEX        LEDC_CHANNEL_3
   #define PS2_INDEX        LEDC_CHANNEL_4
   #define TOTAL_PWM_VALUES 4
-  #define PWM_FREQUENCY     300000
+  #define PWM_FREQUENCY     10000
 #endif
 
-#define MAX_CURRENT 10
+#define MAX_CURRENT 2
 #define R_SHUNT 0.01
 
 #define SEPIC_SETPOINT 12.4

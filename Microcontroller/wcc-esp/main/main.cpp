@@ -3,6 +3,9 @@
 #include "PowerSupplyControl.hpp"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/uart.h"
 
 extern "C"
 {
@@ -17,6 +20,10 @@ extern "C"
 
 static const char* MAIN_TAG = "MAIN";
 static const char* CSV_TAG = "CSV";
+
+#define TXD_PIN (GPIO_NUM_43) // GPIO pin for TX
+#define RXD_PIN (GPIO_NUM_44) // GPIO pin for RX
+
 /*
 void app_main(void)
 {
@@ -53,21 +60,66 @@ void app_main(void)
     }
 }
 */
+HardwareControl hw;
+esp_adc_cal_characteristics_t adc1_chars;
+void idleTsk(void * parameter);
+
 
 void app_main(void)
 {
-    HardwareControl hw;
 
-    while(1)
+    adc1_config_channel_atten(ADC1_CHANNEL_3, ADC_ATTEN_DB_11);
+    adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11);
+    
+
+    esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_13, 0, &adc1_chars);
+
+    float test_point;
+     bv
+    float Kp;
+    float duty;
+    int *adc_out;
+
+    pinMode(LED_1, OUTPUT);
+    digitalWrite(LED_1, LOW);
+
+
+    hw.setSetPoint(0, 3);
+    //hw.setAlgorithm(PID);
+    hw.setPWM(PWM_SEPIC, 40);
+
+    esp_log_level_set(CONTROL_TAG, ESP_LOG_NONE);
+    esp_log_level_set(SPI_TAG, ESP_LOG_NONE);
+    esp_log_level_set(MAIN_TAG, ESP_LOG_NONE);
+    esp_log_level_set(CSV_TAG, ESP_LOG_INFO);
+
+    xTaskCreate(
+        idleTsk,    // Function that should be called
+        "Idle Task",   // Name of the task (for debugging)
+        10000,            // Stack size (bytes)
+        NULL,            // Parameter to pass
+        1,               // Task priority
+        NULL             // Task handle
+    );
+}
+
+void idleTsk(void * parameter)
+{
+    for(;;)
     {
-        hw.testDevice(0);
-        hw.testDevice(1);
-        hw.testDevice(2);
-        hw.testDevice(3);
-        hw.testDevice(4);
-        hw.testDevice(5);
-        hw.testDevice(6);
+        hw.update();
+        _device_values_t measurements;
 
-        delayMicroseconds(50000);
+
+        for(int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++)
+        {
+            if(hw.getDeviceEN(i))
+            {
+                measurements = hw.getDeviceParams(i);
+                ESP_LOGI(CSV_TAG,"%lld,%d,%f,%f,%f,%f", esp_timer_get_time(), i, measurements.current, measurements.vbus, measurements.power, measurements.dietemp);
+            }
+        }
     }
 }
+
+
