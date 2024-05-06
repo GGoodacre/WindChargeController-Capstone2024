@@ -2,6 +2,7 @@ build/
 sdkconfig
 sdkconfig.old
 
+*.obj
 .config
 *.o
 *.pyc
