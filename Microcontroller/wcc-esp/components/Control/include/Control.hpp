@@ -9,8 +9,8 @@
 
 
 
-constexpr int AVG_SIZE = 16;
-#define TRIM_PERCENT 0.125
+constexpr int AVG_SIZE = 1;
+#define TRIM_PERCENT 0
 struct _device_values_t {
     float vshunt;
     float vbus;
@@ -224,54 +224,48 @@ bool Control<pwm_size, device_size>::update_measurements()
     {
         if(_devices[i].en)
         {
-            if(getDIAG(i) & 0b10)
+            if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_SHUNT])
             {
-                if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_SHUNT])
-                {
-                    _spi.read(_devices[i].device_pin, VSHUNT, rx);
-                    _devices[i].vshunt_array[_devices[i].array_index] = rx;
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_BUS])
-                {
-                    _spi.read(_devices[i].device_pin, VBUS, rx);
-                    _devices[i].vbus_array[_devices[i].array_index] = rx;
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_DIE_TEMP])
-                {
-                    _spi.read(_devices[i].device_pin, DIETEMP, rx);
-                    _devices[i].dietemp_array[_devices[i].array_index] = rx;               
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_CURRENT])
-                {
-                    _spi.read(_devices[i].device_pin, CURRENT, rx);
-                    _devices[i].current_array[_devices[i].array_index] = rx;                 
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_POWER])
-                {
-                    _spi.read(_devices[i].device_pin, POWER, rx);
-                    _devices[i].power_array[_devices[i].array_index] = rx;                 
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_ENERGY])
-                {
-                    _spi.read(_devices[i].device_pin, ENERGY, rx);
-                    _devices[i].energy_array[_devices[i].array_index] = rx;                 
-                }
-                if(_devices[i].en_measurement[DEVICEVALUE_CHARGE])
-                {
-                    _spi.read(_devices[i].device_pin, CHARGE, rx);
-                    _devices[i].charge_array[_devices[i].array_index] = rx;                  
-                }
-                _devices[i].array_index++;
-                if(_devices[i].array_index >= AVG_SIZE)
-                {
-                    _devices[i].array_index = 0;
-                    calculateAVG(_devices[i]);
-                }
+                _spi.read(_devices[i].device_pin, VSHUNT, rx);
+                _devices[i].vshunt_array[_devices[i].array_index] = rx;
             }
-            else
+            if(_devices[i].en_measurement[DEVICEVALUE_VOLTAGE_BUS])
             {
-                _spi.write(_devices[i].device_pin, ADC_CONFIG, ADC_CONFIG_MODE);
+                _spi.read(_devices[i].device_pin, VBUS, rx);
+                _devices[i].vbus_array[_devices[i].array_index] = rx;
             }
+            if(_devices[i].en_measurement[DEVICEVALUE_DIE_TEMP])
+            {
+                _spi.read(_devices[i].device_pin, DIETEMP, rx);
+                _devices[i].dietemp_array[_devices[i].array_index] = rx;               
+            }
+            if(_devices[i].en_measurement[DEVICEVALUE_CURRENT])
+            {
+                _spi.read(_devices[i].device_pin, CURRENT, rx);
+                _devices[i].current_array[_devices[i].array_index] = rx;                 
+            }
+            if(_devices[i].en_measurement[DEVICEVALUE_POWER])
+            {
+                _spi.read(_devices[i].device_pin, POWER, rx);
+                _devices[i].power_array[_devices[i].array_index] = rx;                 
+            }
+            if(_devices[i].en_measurement[DEVICEVALUE_ENERGY])
+            {
+                _spi.read(_devices[i].device_pin, ENERGY, rx);
+                _devices[i].energy_array[_devices[i].array_index] = rx;                 
+            }
+            if(_devices[i].en_measurement[DEVICEVALUE_CHARGE])
+            {
+                _spi.read(_devices[i].device_pin, CHARGE, rx);
+                _devices[i].charge_array[_devices[i].array_index] = rx;                  
+            }
+            _devices[i].array_index++;
+            if(_devices[i].array_index >= AVG_SIZE)
+            {
+                _devices[i].array_index = 0;
+                calculateAVG(_devices[i]);
+            }
+
         }
     }
     return true;

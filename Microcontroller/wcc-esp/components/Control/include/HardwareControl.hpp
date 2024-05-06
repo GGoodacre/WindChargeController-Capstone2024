@@ -63,7 +63,7 @@ enum DEVICE_INDEX {
   #define PWM_FREQUENCY     10000
 #endif
 
-#define MAX_CURRENT 2
+#define MAX_CURRENT 10
 #define R_SHUNT 0.01
 
 #define SEPIC_SETPOINT 12.4

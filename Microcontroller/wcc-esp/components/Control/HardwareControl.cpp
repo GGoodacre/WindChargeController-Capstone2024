@@ -22,7 +22,8 @@ HardwareControl::HardwareControl() :
     _pwm_values[PWM_SEPIC].pid = QuickPID(&_devices[DEVICEINDEX_R7_BUCK].vbus, &_pwm_values[PWM_SEPIC].duty_cycle, &_pwm_values[PWM_SEPIC].setpoint);
     _pwm_values[PWM_SEPIC].pid.SetTunings(SEPIC_Kp, SEPIC_Ki, SEPIC_Kd);
     _pwm_values[PWM_SEPIC].pid.SetMode(1);
-    _pwm_values[PWM_SEPIC].pid.SetOutputLimits(20, 80);
+    _pwm_values[PWM_SEPIC].pid.SetOutputLimits(0, 100);
+    //_pwm_values[PWM_SEPIC].pid.SetOutputLimits(20, 80);
     _pwm_values[PWM_SEPIC].pid.SetSampleTimeUs(10000);
 
     _pwm_values[PWM_PS1].duty_cycle = 100;

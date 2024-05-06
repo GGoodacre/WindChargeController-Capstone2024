@@ -42,6 +42,26 @@ def pwm_button_callback(label, dc_or_sp, value):
 	print(tx)
 	send_semaphore.release() 
 
+def switch_mcpt():
+	global mcpt_en
+
+	if mcpt_en:
+		mcpt_button.config(image = mcpt_off)
+		mcpt_en = False
+	else:
+		mcpt_button.config(image = mcpt_on)
+		mcpt_en = True
+
+def switch_turbine():
+	global turbine_en
+
+	if turbine_en:
+		turbine_button.config(image = turbine_off)
+		turbine_en = False
+	else:
+		turbine_button.config(image = turbine_on)
+		turbine_en = True
+
 # if main()
 if __name__ == "__main__":
 
@@ -64,14 +84,27 @@ if __name__ == "__main__":
 
 	# nukes
 	new_window = tkinter.Toplevel(window)
-	new_window.geometry('800x400')
+	new_window.geometry('800x480')
 	new_window.title('Front-End Console')
-	mppt_var = tkinter.BooleanVar()
-	mppt_button = tkinter.Button(master = new_window, text = 'MPPT', command = lambda: print('MPPT MODE SELECTED'))
-	mppt_button.pack()
-	mcpt_var = tkinter.BooleanVar()
-	mcpt_button = tkinter.Button(master = new_window, text = 'MCPT', command = lambda: print('MCPT MODE SELECTED'))
-	mcpt_button.pack()
+
+	mcpt_en = False
+	turbine_en = False
+
+	mcpt_on = tkinter.PhotoImage(file = "mcpt_on.png")
+	mcpt_off = tkinter.PhotoImage(file = "mcpt_off.png")
+	turbine_on = tkinter.PhotoImage(file = "turbine_on.png")
+	turbine_off = tkinter.PhotoImage(file = "turbine_off.png")
+
+	mcpt_button = tkinter.Button(new_window, image = mcpt_off, bd = 0, command = switch_mcpt)
+	turbine_button = tkinter.Button(new_window, image = turbine_off, bd = 0, command = switch_turbine)
+
+	mcpt_label = tkinter.Label(new_window, text ="Algorithm MCPT/MPPT", font = ("Helvetica", 18))
+	turbine_label = tkinter.Label(new_window, text ="Turbine ON/OFF", font = ("Helvetica", 18))
+
+	mcpt_label.place(x=80, y=50)
+	mcpt_button.place(x=50, y=100)
+	turbine_label.place(x=460, y=50)
+	turbine_button.place(x=400, y=100)
 
 	# pwms tab
 	pwms_tab = ttk.Frame(master = notebook)
