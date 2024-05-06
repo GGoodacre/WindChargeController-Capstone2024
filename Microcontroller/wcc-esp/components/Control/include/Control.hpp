@@ -104,9 +104,13 @@ class Control {
 
         int _algorithm;
         std::array<_pwm_values_t, pwm_size> _pwm_values;
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 
 
-        virtual void update_measurements();
+        virtual bool update_measurements();
         virtual void update_pwm();
 
         virtual void PID_control() = 0;
@@ -213,7 +217,7 @@ Size: 40
 */
 
 template<size_t pwm_size, size_t device_size>
-void Control<pwm_size, device_size>::update_measurements()
+bool Control<pwm_size, device_size>::update_measurements()
 {
     float rx;
     for(int i = 0; i < device_size; i++)
@@ -270,6 +274,7 @@ void Control<pwm_size, device_size>::update_measurements()
             }
         }
     }
+    return true;
 }
 
 template<size_t pwm_size, size_t device_size>

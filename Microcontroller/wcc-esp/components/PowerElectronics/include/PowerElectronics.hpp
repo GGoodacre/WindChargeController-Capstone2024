@@ -1,5 +1,6 @@
 #include "Arduino.h"
-#include <ESP32_FastPWM.h>
+//#include <ESP32_FastPWM.h>
+#include "driver/ledc.h"
 #include <array>
 
 class PowerElectronics {
