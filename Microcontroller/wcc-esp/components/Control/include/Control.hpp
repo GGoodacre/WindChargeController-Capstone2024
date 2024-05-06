@@ -104,10 +104,6 @@ class Control {
 
         int _algorithm;
         std::array<_pwm_values_t, pwm_size> _pwm_values;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 
         virtual bool update_measurements();

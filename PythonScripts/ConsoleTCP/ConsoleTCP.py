@@ -42,15 +42,27 @@ def pwm_button_callback(label, dc_or_sp, value):
 	print(tx)
 	send_semaphore.release() 
 
+def turbine_button_callback(value):
+	global send_semaphore
+	global tx
+	tx = str(value) + '\0'
+	print(tx)
+	send_semaphore.release() 
+
 def switch_mcpt():
 	global mcpt_en
 
 	if mcpt_en:
 		mcpt_button.config(image = mcpt_off)
 		mcpt_en = False
+		# send command to set the rectifier setpoint to 70V
+		pwm_button_callback(labels[0], "SETPOINT", 70)
+	
 	else:
 		mcpt_button.config(image = mcpt_on)
 		mcpt_en = True
+		# send command to set the rectifier setpoint to 20V
+		pwm_button_callback(labels[0], "SETPOINT", 20)
 
 def switch_turbine():
 	global turbine_en
@@ -58,9 +70,14 @@ def switch_turbine():
 	if turbine_en:
 		turbine_button.config(image = turbine_off)
 		turbine_en = False
+		# turn a gpio pin off
+		turbine_button_callback(0)
 	else:
 		turbine_button.config(image = turbine_on)
 		turbine_en = True
+		# turn a gpio pin on
+		turbine_button_callback(1)
+
 
 # if main()
 if __name__ == "__main__":
@@ -138,3 +155,5 @@ if __name__ == "__main__":
 
 	# run
 	window.mainloop()
+
+	

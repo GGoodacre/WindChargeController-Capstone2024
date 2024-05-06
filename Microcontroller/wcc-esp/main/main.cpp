@@ -43,6 +43,8 @@ static const char* PWM_TAG = "PWM";
 
 #define TXD_PIN (GPIO_NUM_43) // GPIO pin for TX
 #define RXD_PIN (GPIO_NUM_44) // GPIO pin for RX
+#define TURBINE_PIN 17
+
 
 HardwareControl hw;
 esp_adc_cal_characteristics_t adc1_chars;
@@ -54,6 +56,9 @@ void app_main(void)
 
     adc1_config_channel_atten(ADC1_CHANNEL_3, ADC_ATTEN_DB_11);
     adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11);
+    pinMode(TURBINE_PIN, OUTPUT);
+    //digitalWrite(TURBINE_PIN, 1); ON
+    //digitalWrite(TURBINE_PIN, 0); OFF
     
 
     esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_13, 0, &adc1_chars);
@@ -86,16 +91,18 @@ void app_main(void)
     );
 }
 
+void idleTsk(void * parameter);
+
+
 void idleTsk(void * parameter)
 {
-
     // passing hw into the controller class to do stuff
     ControllerTCP controller(hw);
     for(;;)
     {
         hw.update();
         _device_values_t measurements;
-        controller.send_data();
+        //controller.send_data();
 
         for(int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++)
         {

@@ -4,7 +4,7 @@ ControllerTCP::ControllerTCP(HardwareControl &hw) : hw(hw) {
     _tag = "TCP Controller";
     init_netif_helper();
     xTaskCreate(&run_tcp_console_trampoline, "tcp_console_task", 4096, this, 9, &_tcp_console);
-    init_mb_master_helper();
+    //init_mb_master_helper();
 }
 
 void ControllerTCP::wifi_connect_hdl_en(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
@@ -122,6 +122,12 @@ void ControllerTCP::run_tcp_console() {
                                     // do stuff based on message received
                                     char *token;
                                     token = strtok(rx_buffer, "_"); // gets device or pwm
+                                    if(strcmp(token, "1") == 0) {
+                                        digitalWrite(TURBINE_PIN, atol(token));
+                                    }
+                                    if(strcmp(token, "0") == 0) {
+                                        digitalWrite(TURBINE_PIN, atol(token));
+                                    }
                                     if (strcmp(token, "DEVICE") == 0) {
                                         int device_id = atoi(strtok(NULL, "_")); // gets device id
                                         bool en = atoi(strtok(NULL, "_")); // gets enable
