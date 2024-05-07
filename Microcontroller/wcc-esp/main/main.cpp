@@ -23,7 +23,6 @@ extern "C" void app_main(void) {
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/uart.h"
-
 #include "ControllerTCP.hpp"
 
 extern "C"
@@ -73,15 +72,16 @@ void app_main(void)
 
 
     //hw.setSetPoint(0, 3);
-    //hw.setAlgorithm(PID);
-    //hw.setPWM(PWM_SEPIC, 40);
     hw.setAlgorithm(PID);
+    //hw.setPWM(PWM_SEPIC, 40);
 
     esp_log_level_set(CONTROL_TAG, ESP_LOG_NONE);
     esp_log_level_set(SPI_TAG, ESP_LOG_NONE);
     esp_log_level_set(MAIN_TAG, ESP_LOG_NONE);
-    esp_log_level_set(CSV_TAG, ESP_LOG_INFO);
+    esp_log_level_set(CSV_TAG, ESP_LOG_NONE);
     esp_log_level_set(PWM_TAG, ESP_LOG_NONE);
+    esp_log_level_set(SEPIC_TAG, ESP_LOG_NONE);
+    esp_log_level_set(RECTIFIER_TAG, ESP_LOG_INFO);
 
     xTaskCreate(
         idleTsk,    // Function that should be called
@@ -103,13 +103,14 @@ void idleTsk(void * parameter)
     for(;;)
     {
         hw.update();
+        
+        //controller send data
+        /*
         _device_values_t measurements;
-
         for(int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++)
         {
             if(hw.getDeviceEN(i))
             {
-                //hw.testDevice(i);
                 measurements = hw.getDeviceParams(i);
                 ESP_LOGI(CSV_TAG,"%lld,%d,%f,%f,%f,%f", esp_timer_get_time(), i, measurements.current, measurements.vbus, measurements.power, measurements.dietemp);
             }
@@ -118,6 +119,7 @@ void idleTsk(void * parameter)
         for(int i = 0; i < TOTAL_PWM_VALUES; i++) {
             ESP_LOGI(PWM_TAG, "%lld,%d,%f,%d", esp_timer_get_time(), i, hw.getPWM(i), hw.getSetPoint(i));
         }
+        */
     }
 }
 

@@ -111,10 +111,10 @@ class SPImaster
   #define CONFIG_ADCRANGE 0x0 << 4 
 
   #define ADC_CONFIG_MODE 0xF << 12
-  #define ADC_CONFIG_VBUSCT 0x4 << 9    
-  #define ADC_CONFIG_VSHCT 0x4 << 6   
-  #define ADC_CONFIG_VTCT 0x4 << 3   
-  #define ADC_CONFIG_AVG 0x4 << 0   
+  #define ADC_CONFIG_VBUSCT 0x3 << 9    
+  #define ADC_CONFIG_VSHCT 0x3 << 6   
+  #define ADC_CONFIG_VTCT 0x3 << 3   
+  #define ADC_CONFIG_AVG 0x3 << 0   
 
   #define WRITE_REGISTER    0x0
   #define WRITE_SIZE        0x03

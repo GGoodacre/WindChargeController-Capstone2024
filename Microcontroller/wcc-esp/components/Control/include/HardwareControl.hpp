@@ -47,9 +47,8 @@ enum DEVICE_INDEX {
 #endif
 
 #ifndef POWERELECPINS
-    //#define RECTIFIER_PIN   33
-    #define RECTIFIER_PIN 12
-    #define HIGHSIDE_RECTIFIER_PIN 34
+    #define RECTIFIER_PIN   34
+    #define HIGHSIDE_RECTIFIER_PIN 33
     #define SEPIC_PIN       1
     #define PS1_PIN        19
     #define PS2_PIN        20
@@ -68,21 +67,24 @@ enum DEVICE_INDEX {
 #define R_SHUNT 0.01
 
 #define diode_drop 1.4
-#define SEPIC_SETPOINT 2
-#define RECTIFIER_SETPOINT 70
+#define SEPIC_SETPOINT 1
+#define RECTIFIER_SETPOINT 1.8
 #define PS1_SETPOINT 1000
 
-#define SEPIC_Kp 1000
-#define SEPIC_Ki 600
+#define SEPIC_Kp 10
+#define SEPIC_Ki 2
 #define SEPIC_Kd 0
 
-#define RECTIFIER_Kp -20
+#define RECTIFIER_Kp 20
 #define RECTIFIER_Ki 20
 #define RECTIFIER_Kd 0
 
 #define PS1_Kp 0
 #define PS1_Ki 0
 #define PS1_Kd 0
+
+static const char* SEPIC_TAG = "SEPIC";
+static const char* RECTIFIER_TAG = "RECTIFIER";
 
 class HardwareControl : public Control<TOTAL_PWM_VALUES, TOTAL_MEASUREMENT_DEVICES> {
     public:
@@ -91,6 +93,8 @@ class HardwareControl : public Control<TOTAL_PWM_VALUES, TOTAL_MEASUREMENT_DEVIC
     private:
         
         void PID_control();
-        float _sepic_pwm_cv;
+        float _sepic_pwm_setpoint;
+        float _sepic_pwm_input;
+        float _rectifier_input;
 };
 
