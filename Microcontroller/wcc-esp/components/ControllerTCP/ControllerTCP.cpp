@@ -4,7 +4,8 @@ ControllerTCP::ControllerTCP(HardwareControl &hw) : hw(hw) {
     _tag = "TCP Controller";
     init_netif_helper();
     xTaskCreate(&run_tcp_console_trampoline, "tcp_console_task", 4096, this, 9, &_tcp_console);
-    //init_mb_master_helper();
+    init_mb_master_helper();
+    xTaskCreate(&run_send_data_trampoline, "mb_send_data", 4096, this, 9, &_mb_send_data);
 }
 
 void ControllerTCP::wifi_connect_hdl_en(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data) {
@@ -145,7 +146,7 @@ void ControllerTCP::run_tcp_console() {
                                         if (strcmp(setting, "DUTYCYCLE") == 0) hw.setPWM(pwm_id, val);
                                         if (strcmp(setting, "SETPOINT") == 0) hw.setSetPoint(pwm_id, val);
                                     }
-                                    vTaskDelay(10 / portTICK_PERIOD_MS);
+                                    //vTaskDelay(10 / portTICK_PERIOD_MS);
                                 }
                             } while (len > 0);
                         }
@@ -156,7 +157,7 @@ void ControllerTCP::run_tcp_console() {
                 }
             }
         }
-        vTaskDelay(500 / portTICK_PERIOD_MS);
+        //vTaskDelay(500 / portTICK_PERIOD_MS);
     }
 }
 
@@ -230,6 +231,7 @@ bool ControllerTCP::listen_tcp_socket()
 
 void ControllerTCP::init_mb_master_helper() {
     ESP_ERROR_CHECK(mbc_master_init_tcp(&_master_handler));
+    ESP_LOGI(_tag, "HANDLER INITIALIZED");
 
     _mb_dev_ip_addrs[0] = RASPBERRY_IP;
     _mb_dev_ip_addrs[1] = RASPBERRY_IP;
@@ -246,6 +248,7 @@ void ControllerTCP::init_mb_master_helper() {
     _mb_comm_info.ip_addr = _mb_dev_ip_addrs;
 
     ESP_ERROR_CHECK(mbc_master_setup((void*)&_mb_comm_info));
+    ESP_LOGI(_tag, "COMM INFO SET");
 
     mb_parameter_descriptor_t pd[CID_NUM] = {
         // SHUNT 1
@@ -665,102 +668,111 @@ void ControllerTCP::init_mb_master_helper() {
     memcpy(_param_descs, pd, sizeof(_param_descs));
 
     ESP_ERROR_CHECK(mbc_master_set_descriptor(_param_descs, CID_NUM));
+    ESP_LOGI(_tag, "PD SET");
     ESP_ERROR_CHECK(mbc_master_start());
+    ESP_LOGI(_tag, "MASTER STARTED");
     vTaskDelay(1000 / portTICK_PERIOD_MS);
 }
 
-void ControllerTCP::send_data() {
+
+void ControllerTCP::run_send_data_trampoline(void* arg) {
+    ControllerTCP* local_send_data = (ControllerTCP*) arg;
+
+    local_send_data->run_send_data();
+}
+
+void ControllerTCP::run_send_data() {
     const mb_parameter_descriptor_t* pd_rx = NULL;
     _device_values_t measurements;
 
-    for (int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++) {
+    while(1) {
+        for (int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++) {
 
-        measurements = hw.getDeviceParams(i);
+            measurements = hw.getDeviceParams(i);
 
-        uint16_t cid_power, cid_voltage, cid_current, cid_temperature;
-        switch(i) {
-            case 0:
-                cid_power = SHUNT1_POWER_CID;
-                cid_voltage = SHUNT1_VOLTAGE_CID;
-                cid_current = SHUNT1_CURRENT_CID;
-                cid_temperature = SHUNT1_TEMPERATURE_CID; 
-                break;
-            case 1:
-                cid_power = SHUNT2_POWER_CID;
-                cid_voltage = SHUNT2_VOLTAGE_CID;
-                cid_current = SHUNT2_CURRENT_CID;
-                cid_temperature = SHUNT2_TEMPERATURE_CID;
-                break;
-            case 2:
-                cid_power = SHUNT3_POWER_CID;
-                cid_voltage = SHUNT3_VOLTAGE_CID;
-                cid_current = SHUNT3_CURRENT_CID;
-                cid_temperature = SHUNT3_TEMPERATURE_CID;
-                break;
-            case 3:
-                cid_power = SHUNT4_POWER_CID;
-                cid_voltage = SHUNT4_VOLTAGE_CID;
-                cid_current = SHUNT4_CURRENT_CID;
-                cid_temperature = SHUNT4_TEMPERATURE_CID;
-                break;
-            case 4:
-                cid_power = SHUNT5_POWER_CID;
-                cid_voltage = SHUNT5_VOLTAGE_CID;
-                cid_current = SHUNT5_CURRENT_CID;
-                cid_temperature = SHUNT5_TEMPERATURE_CID;
-                break;
-            case 5:
-                cid_power = SHUNT6_POWER_CID;
-                cid_voltage = SHUNT6_VOLTAGE_CID;
-                cid_current = SHUNT6_CURRENT_CID;
-                cid_temperature = SHUNT6_TEMPERATURE_CID;
-                break;
-            case 6:
-                cid_power = SHUNT7_POWER_CID;
-                cid_voltage = SHUNT7_VOLTAGE_CID;
-                cid_current = SHUNT7_CURRENT_CID;
-                cid_temperature = SHUNT7_TEMPERATURE_CID;
-                break;
-            default:
-                cid_power = SHUNT1_POWER_CID;
-                cid_voltage = SHUNT1_VOLTAGE_CID;
-                cid_current = SHUNT1_CURRENT_CID;
-                cid_temperature = SHUNT1_TEMPERATURE_CID;
-                break;
-        }
+            uint16_t cid_power, cid_voltage, cid_current, cid_temperature;
+            switch(i) {
+                case 0:
+                    cid_power = SHUNT1_POWER_CID;
+                    cid_voltage = SHUNT1_VOLTAGE_CID;
+                    cid_current = SHUNT1_CURRENT_CID;
+                    cid_temperature = SHUNT1_TEMPERATURE_CID; 
+                    break;
+                case 1:
+                    cid_power = SHUNT2_POWER_CID;
+                    cid_voltage = SHUNT2_VOLTAGE_CID;
+                    cid_current = SHUNT2_CURRENT_CID;
+                    cid_temperature = SHUNT2_TEMPERATURE_CID;
+                    break;
+                case 2:
+                    cid_power = SHUNT3_POWER_CID;
+                    cid_voltage = SHUNT3_VOLTAGE_CID;
+                    cid_current = SHUNT3_CURRENT_CID;
+                    cid_temperature = SHUNT3_TEMPERATURE_CID;
+                    break;
+                case 3:
+                    cid_power = SHUNT4_POWER_CID;
+                    cid_voltage = SHUNT4_VOLTAGE_CID;
+                    cid_current = SHUNT4_CURRENT_CID;
+                    cid_temperature = SHUNT4_TEMPERATURE_CID;
+                    break;
+                case 4:
+                    cid_power = SHUNT5_POWER_CID;
+                    cid_voltage = SHUNT5_VOLTAGE_CID;
+                    cid_current = SHUNT5_CURRENT_CID;
+                    cid_temperature = SHUNT5_TEMPERATURE_CID;
+                    break;
+                case 5:
+                    cid_power = SHUNT6_POWER_CID;
+                    cid_voltage = SHUNT6_VOLTAGE_CID;
+                    cid_current = SHUNT6_CURRENT_CID;
+                    cid_temperature = SHUNT6_TEMPERATURE_CID;
+                    break;
+                case 6:
+                    cid_power = SHUNT7_POWER_CID;
+                    cid_voltage = SHUNT7_VOLTAGE_CID;
+                    cid_current = SHUNT7_CURRENT_CID;
+                    cid_temperature = SHUNT7_TEMPERATURE_CID;
+                    break;
+                default:
+                    cid_power = SHUNT1_POWER_CID;
+                    cid_voltage = SHUNT1_VOLTAGE_CID;
+                    cid_current = SHUNT1_CURRENT_CID;
+                    cid_temperature = SHUNT1_TEMPERATURE_CID;
+                    break;
+            }
 
-        short ps = measurements.power * BATTERY_POWER_SF;
-        short vs = measurements.vbus * BATTERY_VOLTAGE_SF;
-        short cs = measurements.current * BATTERY_CURRENT_SF;
-        short ts = measurements.dietemp * BATTERY_TEMPERATURE_SF;
+            short ps = measurements.power * BATTERY_POWER_SF;
+            short vs = measurements.vbus * BATTERY_VOLTAGE_SF;
+            short cs = measurements.current * BATTERY_CURRENT_SF;
+            short ts = measurements.dietemp * BATTERY_TEMPERATURE_SF;
 
-        byte* pb = (byte*) &ps;
-        byte* vb = (byte*) &vs;
-        byte* cb = (byte*) &cs;
-        byte* tb = (byte*) &ts;
+            byte* pb = (byte*) &ps;
+            byte* vb = (byte*) &vs;
+            byte* cb = (byte*) &cs;
+            byte* tb = (byte*) &ts;
 
-        uint8_t pu[2] = {pb[0], pb[1]};
-        uint8_t vu[2] = {vb[0], vb[1]};
-        uint8_t cu[2] = {cb[0], cb[1]};
-        uint8_t tu[2] = {tb[0], tb[1]};
+            uint8_t pu[2] = {pb[0], pb[1]};
+            uint8_t vu[2] = {vb[0], vb[1]};
+            uint8_t cu[2] = {cb[0], cb[1]};
+            uint8_t tu[2] = {tb[0], tb[1]};
 
-        ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_power, &pd_rx));
-        uint8_t type = pd_rx->param_type;
-        ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)pu, &type));
+            ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_power, &pd_rx));
+            uint8_t type = pd_rx->param_type;
+            ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)pu, &type));
 
-        ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_voltage, &pd_rx));
-        type = pd_rx->param_type;
-        ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)vu, &type));
+            ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_voltage, &pd_rx));
+            type = pd_rx->param_type;
+            ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)vu, &type));
 
-        ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_current, &pd_rx));
-        type = pd_rx->param_type;
-        ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)cu, &type));
+            ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_current, &pd_rx));
+            type = pd_rx->param_type;
+            ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)cu, &type));
 
-        ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_temperature, &pd_rx));
-        type = pd_rx->param_type;
-        ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)tu, &type));
-
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-    };
+            ESP_ERROR_CHECK(mbc_master_get_cid_info(cid_temperature, &pd_rx));
+            type = pd_rx->param_type;
+            ESP_ERROR_CHECK(mbc_master_set_parameter(pd_rx->cid, (char*)pd_rx->param_key, (uint8_t*)tu, &type));
+        };
+    }
 }
 

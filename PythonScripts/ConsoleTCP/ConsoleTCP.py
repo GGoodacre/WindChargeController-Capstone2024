@@ -15,7 +15,7 @@ def tcp_comm_task(name):
 	global tx
 
 	console_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	console_address = ('192.168.36.109', 49160)
+	console_address = ('192.168.229.109', 49160)
 	console_socket.connect(console_address)
 
 	while connected: 

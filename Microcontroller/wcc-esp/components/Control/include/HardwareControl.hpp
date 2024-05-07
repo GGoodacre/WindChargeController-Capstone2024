@@ -47,7 +47,8 @@ enum DEVICE_INDEX {
 #endif
 
 #ifndef POWERELECPINS
-    #define RECTIFIER_PIN   33
+    //#define RECTIFIER_PIN   33
+    #define RECTIFIER_PIN 12
     #define HIGHSIDE_RECTIFIER_PIN 34
     #define SEPIC_PIN       1
     #define PS1_PIN        19
@@ -67,7 +68,7 @@ enum DEVICE_INDEX {
 #define R_SHUNT 0.01
 
 #define diode_drop 1.4
-#define SEPIC_SETPOINT 12.4
+#define SEPIC_SETPOINT 2
 #define RECTIFIER_SETPOINT 70
 #define PS1_SETPOINT 1000
 

@@ -43,7 +43,7 @@ static const char* PWM_TAG = "PWM";
 
 #define TXD_PIN (GPIO_NUM_43) // GPIO pin for TX
 #define RXD_PIN (GPIO_NUM_44) // GPIO pin for RX
-#define TURBINE_PIN 17
+#define TURBINE_PIN 13
 
 
 HardwareControl hw;
@@ -58,7 +58,7 @@ void app_main(void)
     adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11);
     pinMode(TURBINE_PIN, OUTPUT);
     //digitalWrite(TURBINE_PIN, 1); ON
-    //digitalWrite(TURBINE_PIN, 0); OFF
+    digitalWrite(TURBINE_PIN, 0);
     
 
     esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_13, 0, &adc1_chars);
@@ -72,14 +72,16 @@ void app_main(void)
     digitalWrite(LED_1, LOW);
 
 
-    hw.setSetPoint(0, 3);
+    //hw.setSetPoint(0, 3);
     //hw.setAlgorithm(PID);
-    hw.setPWM(PWM_SEPIC, 40);
+    //hw.setPWM(PWM_SEPIC, 40);
+    hw.setAlgorithm(PID);
 
     esp_log_level_set(CONTROL_TAG, ESP_LOG_NONE);
-    esp_log_level_set(SPI_TAG, ESP_LOG_INFO);
+    esp_log_level_set(SPI_TAG, ESP_LOG_NONE);
     esp_log_level_set(MAIN_TAG, ESP_LOG_NONE);
-    esp_log_level_set(CSV_TAG, ESP_LOG_NONE);
+    esp_log_level_set(CSV_TAG, ESP_LOG_INFO);
+    esp_log_level_set(PWM_TAG, ESP_LOG_NONE);
 
     xTaskCreate(
         idleTsk,    // Function that should be called
@@ -97,12 +99,11 @@ void idleTsk(void * parameter);
 void idleTsk(void * parameter)
 {
     // passing hw into the controller class to do stuff
-    ControllerTCP controller(hw);
+    static ControllerTCP controller(hw);
     for(;;)
     {
         hw.update();
         _device_values_t measurements;
-        //controller.send_data();
 
         for(int i = 0; i < TOTAL_MEASUREMENT_DEVICES; i++)
         {
@@ -112,12 +113,10 @@ void idleTsk(void * parameter)
                 measurements = hw.getDeviceParams(i);
                 ESP_LOGI(CSV_TAG,"%lld,%d,%f,%f,%f,%f", esp_timer_get_time(), i, measurements.current, measurements.vbus, measurements.power, measurements.dietemp);
             }
-            vTaskDelay(250 / portTICK_PERIOD_MS);
         }
 
         for(int i = 0; i < TOTAL_PWM_VALUES; i++) {
             ESP_LOGI(PWM_TAG, "%lld,%d,%f,%d", esp_timer_get_time(), i, hw.getPWM(i), hw.getSetPoint(i));
-            vTaskDelay(250 / portTICK_PERIOD_MS);
         }
     }
 }

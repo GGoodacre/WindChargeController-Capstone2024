@@ -36,6 +36,8 @@
 #define MB_DEV_NUM 7
 #define CID_NUM 4*7
 
+#define TURBINE_PIN 13
+
 enum {
     SHUNT1_UID = 238, // 289
     SHUNT2_UID = 237, // 290
@@ -101,7 +103,6 @@ class ControllerTCP {
     public:
         ControllerTCP(HardwareControl &hw); // testing passing variable by reference
         HardwareControl &hw; // test variable in class
-        void send_data();
 
     private:
         const char* _tag;
@@ -115,6 +116,7 @@ class ControllerTCP {
         mb_parameter_descriptor_t _param_descs[CID_NUM];
 
         TaskHandle_t _tcp_console;
+        TaskHandle_t _mb_send_data;
         struct sockaddr_storage dest_addr;
         struct sockaddr_storage source_addr; 
         int listen_sock; 
@@ -134,6 +136,9 @@ class ControllerTCP {
         bool listen_tcp_socket();
         static void run_tcp_console_trampoline(void *arg); 
         void run_tcp_console();
+        static void run_send_data_trampoline (void *arg);
+        void run_send_data();
+
 
         void init_mb_master_helper();    
 };
