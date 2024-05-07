@@ -153,6 +153,7 @@ if __name__ == "__main__":
 	tcp_comm_handle = threading.Thread(target = tcp_comm_task, args = ('TCP Communication Task',) )
 	tcp_comm_handle.start()
 
+	new_window.attributes('-fullscreen', True)
 	# run
 	window.mainloop()
 
