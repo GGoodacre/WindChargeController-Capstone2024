@@ -56,13 +56,13 @@ def switch_mcpt():
 		mcpt_button.config(image = mcpt_off)
 		mcpt_en = False
 		# send command to set the rectifier setpoint to 70V
-		pwm_button_callback(labels[0], "SETPOINT", 70)
+		pwm_button_callback(labels[0], "SETPOINT", 5)
 	
 	else:
 		mcpt_button.config(image = mcpt_on)
 		mcpt_en = True
 		# send command to set the rectifier setpoint to 20V
-		pwm_button_callback(labels[0], "SETPOINT", 20)
+		pwm_button_callback(labels[0], "SETPOINT", 1)
 
 def switch_turbine():
 	global turbine_en

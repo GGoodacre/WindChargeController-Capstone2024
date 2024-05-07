@@ -81,7 +81,7 @@ void app_main(void)
     esp_log_level_set(CSV_TAG, ESP_LOG_NONE);
     esp_log_level_set(PWM_TAG, ESP_LOG_NONE);
     esp_log_level_set(SEPIC_TAG, ESP_LOG_NONE);
-    esp_log_level_set(RECTIFIER_TAG, ESP_LOG_INFO);
+    esp_log_level_set(RECTIFIER_TAG, ESP_LOG_NONE);
 
     xTaskCreate(
         idleTsk,    // Function that should be called
