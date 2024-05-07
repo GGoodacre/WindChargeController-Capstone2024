@@ -66,19 +66,20 @@ enum DEVICE_INDEX {
 #define MAX_CURRENT 10
 #define R_SHUNT 0.01
 
+#define diode_drop 1.4
 #define SEPIC_SETPOINT 12.4
-#define RECTIFIER_SETPOINT 300
-#define PS1_SETPOINT 300
+#define RECTIFIER_SETPOINT 70
+#define PS1_SETPOINT 1000
 
-#define SEPIC_Kp 5
-#define SEPIC_Ki 0
+#define SEPIC_Kp 1000
+#define SEPIC_Ki 600
 #define SEPIC_Kd 0
 
-#define RECTIFIER_Kp 5
-#define RECTIFIER_Ki 0
+#define RECTIFIER_Kp -20
+#define RECTIFIER_Ki 20
 #define RECTIFIER_Kd 0
 
-#define PS1_Kp 5
+#define PS1_Kp 0
 #define PS1_Ki 0
 #define PS1_Kd 0
 
@@ -89,5 +90,6 @@ class HardwareControl : public Control<TOTAL_PWM_VALUES, TOTAL_MEASUREMENT_DEVIC
     private:
         
         void PID_control();
+        float _sepic_pwm_cv;
 };
 
