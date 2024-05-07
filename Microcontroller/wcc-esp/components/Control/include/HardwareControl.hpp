@@ -67,8 +67,8 @@ enum DEVICE_INDEX {
 #define R_SHUNT 0.01
 
 #define diode_drop 1.4
-#define SEPIC_SETPOINT 1
-#define RECTIFIER_SETPOINT 1.8
+#define SEPIC_SETPOINT 0.6
+#define RECTIFIER_SETPOINT 5
 #define PS1_SETPOINT 1000
 
 #define SEPIC_Kp 10
